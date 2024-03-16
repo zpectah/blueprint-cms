@@ -1,5 +1,7 @@
 export const BASE_ROOT = '/';
 
+export const PATH_ID_SUFFIX = '/:id';
+
 export const ROUTES = {
   error: {
     path: '*',
@@ -11,6 +13,9 @@ export const ROUTES = {
     path: '/lost-password',
   },
   dashboard: {
-    path: BASE_ROOT,
+    path: '/dashboard',
+  },
+  posts: {
+    path: '/posts',
   },
 };
