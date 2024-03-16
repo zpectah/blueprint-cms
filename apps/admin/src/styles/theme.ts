@@ -1,4 +1,7 @@
 import { Theme } from '@mui/material';
-import { DeepPartial } from '../types';
+import { DeepPartial, ThemeMode } from '../types';
 
-export const theme: DeepPartial<Theme> = {};
+export const getDesignTokens = (mode: ThemeMode): DeepPartial<Theme> => {
+  // TODO
+  return {};
+};

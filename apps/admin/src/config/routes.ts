@@ -7,6 +7,9 @@ export const ROUTES = {
   login: {
     path: '/login',
   },
+  lostPassword: {
+    path: '/lost-password',
+  },
   dashboard: {
     path: BASE_ROOT,
   },

@@ -4,17 +4,20 @@ import { ThemeProvider, CssBaseline, createTheme } from '@mui/material';
 import { ThemeMode, WithChildren } from '../../types';
 import { themeModeKeys } from '../../enums';
 import { AppContextProvider } from '../../contexts';
-import { theme } from '../../styles';
+import { getDesignTokens } from '../../styles';
 
 export type AppProviderProps = WithChildren;
 
 const AppProvider = ({ children }: AppProviderProps) => {
   const [mode, setMode] = useState<ThemeMode>(themeModeKeys.light);
+  const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
 
-  const mergedTheme = deepmerge({ palette: { mode } }, theme);
+  const mergedTheme = deepmerge({ palette: { mode } }, getDesignTokens(mode));
   const appContextValue = {
     mode,
     setMode,
+    sidebarOpen,
+    setSidebarOpen,
   };
 
   return (
