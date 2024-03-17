@@ -13,6 +13,7 @@
     "format:write": "prettier --write .",
     "lint": "eslint"
   },
+  "type": "module",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.11.4",

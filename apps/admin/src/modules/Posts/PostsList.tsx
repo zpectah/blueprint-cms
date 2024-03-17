@@ -1,7 +1,15 @@
 import React from 'react';
+import { DataList } from '../../components';
+import { usePosts } from '../../hooks';
 
 const PostsList = () => {
-  return <div>...Posts List...</div>;
+  const { posts } = usePosts();
+
+  return (
+    <div>
+      <DataList items={posts} />
+    </div>
+  );
 };
 
 export default PostsList;
