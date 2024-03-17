@@ -2,7 +2,7 @@ import React from 'react';
 import { RouterProvider, createBrowserRouter, Navigate } from 'react-router-dom';
 import { BASE_ROOT, PATH_ID_SUFFIX, ROUTES } from '../config';
 import { PageLayout } from '../components';
-import { Error, Login, LostPassword, Dashboard, Posts } from '../modules';
+import { Error, Login, LostPassword, Dashboard, Posts, Settings, Users } from '../modules';
 
 const AppRouter = () => {
   const router = createBrowserRouter([
@@ -19,6 +19,7 @@ const AppRouter = () => {
       element: <PageLayout />,
       children: [
         {
+          // Redirect for empty path
           path: BASE_ROOT,
           element: <Navigate to={ROUTES.dashboard.path} replace />,
         },
@@ -27,12 +28,26 @@ const AppRouter = () => {
           element: <Dashboard />,
         },
         {
-          path: `${ROUTES.posts.path}`,
+          path: ROUTES.settings.path,
+          element: <Settings />,
+        },
+        {
+          path: ROUTES.posts.path,
           element: <Posts />,
           children: [
             {
               path: `${ROUTES.posts.path}${PATH_ID_SUFFIX}`,
               element: <Posts />,
+            },
+          ],
+        },
+        {
+          path: ROUTES.users.path,
+          element: <Users />,
+          children: [
+            {
+              path: `${ROUTES.users.path}${PATH_ID_SUFFIX}`,
+              element: <Users />,
             },
           ],
         },

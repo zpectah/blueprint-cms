@@ -1,8 +1,10 @@
-export const usePosts = () => {
-  const posts: unknown[] = [];
+import { PostsItem, PostsList } from '@blueprint/types';
 
-  const getDetail = (id: number | string | undefined) => {
-    if (!id) return {};
+export const usePosts = () => {
+  const posts: PostsList = [];
+
+  const getDetail = (id: string | undefined): PostsItem | undefined => {
+    if (!id) return undefined;
 
     return {
       id: id,

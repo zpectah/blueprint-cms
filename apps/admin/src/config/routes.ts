@@ -18,4 +18,10 @@ export const ROUTES = {
   posts: {
     path: '/posts',
   },
+  settings: {
+    path: '/settings',
+  },
+  users: {
+    path: '/users',
+  },
 };

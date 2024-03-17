@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { IconButton, Menu, MenuItem } from '@mui/material';
+import { IconButton, Menu, MenuItem, MenuItemProps } from '@mui/material';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 const UserMenu = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
   const open = Boolean(anchorEl);
-  const idPrefix = 'userMenu';
+  const idPrefix = 'UserMenu';
 
   const clickHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
@@ -14,6 +14,19 @@ const UserMenu = () => {
   const closeHandler = () => {
     setAnchorEl(null);
   };
+
+  const menuItems: Partial<MenuItemProps>[] = [
+    {
+      key: 1,
+      children: 'Profile',
+      onClick: closeHandler,
+    },
+    {
+      key: 2,
+      children: 'Logout',
+      onClick: closeHandler,
+    },
+  ];
 
   return (
     <>
@@ -35,9 +48,9 @@ const UserMenu = () => {
           'aria-labelledby': `${idPrefix}_button`,
         }}
       >
-        <MenuItem onClick={closeHandler}>Profile</MenuItem>
-        <MenuItem onClick={closeHandler}>My account</MenuItem>
-        <MenuItem onClick={closeHandler}>Logout</MenuItem>
+        {menuItems.map((item) => (
+          <MenuItem {...item} />
+        ))}
       </Menu>
     </>
   );

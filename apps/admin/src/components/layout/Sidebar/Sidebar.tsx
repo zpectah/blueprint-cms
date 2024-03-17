@@ -9,6 +9,7 @@ import {
   PALETTE,
 } from '../../../styles';
 import { themeModeKeys } from '../../../enums';
+import { PrimaryMenu } from '../PrimaryMenu';
 
 const SidebarBase = styled(Box)({
   position: 'fixed',
@@ -38,7 +39,7 @@ const SidebarScrollableContent = styled('div')({
 const SidebarSecondary = styled(Box)({});
 
 const Sidebar = () => {
-  const { sidebarOpen } = useAppContext();
+  const { sidebarOpen, setSidebarOpen } = useAppContext();
 
   return (
     <SidebarBase
@@ -72,20 +73,11 @@ const Sidebar = () => {
       <SidebarPrimary>
         <SidebarScrollable>
           <SidebarScrollableContent>
-            Sidebar
-            <p>
-              Euismod vestibulum, posuere fringilla molestie felis dui vel dolor consectetur urna, fusce ante porttitor
-              mauris quam. Vitae elementum, fermentum sollicitudin volutpat ullamcorper ante vestibulum non, at nullam
-              vestibulum nec commodo dignissim. Condimentum dui vel dolor, quam euismod suspendisse libero aliquet augue
-              molestie, fermentum sed vitae in ex sem maximus. Nunc nec, nullam lacinia commodo scelerisque suspendisse
-              libero sed ultrices, non nulla libero ornare ultricies. Proin consectetur, vel arcu augue suspendisse
-              suscipit metus lacinia rhoncus at, posuere lacinia congue nulla nec commodo. Suspendisse suspendisse, et
-              non congue viverra pulvinar hendrerit non nulla sollicitudin, neque et augue enim in.
-            </p>
+            <PrimaryMenu onMobileMenuItemClick={() => setSidebarOpen(false)} />
           </SidebarScrollableContent>
         </SidebarScrollable>
       </SidebarPrimary>
-      <SidebarSecondary>Secondary</SidebarSecondary>
+      <SidebarSecondary>{/* TODO */}</SidebarSecondary>
     </SidebarBase>
   );
 };
