@@ -18,8 +18,12 @@ const PostsDetail = () => {
       subtitle="Detail subtitle"
       actions={
         <>
-          <Button variant="contained">Button</Button>
-          <Button variant="contained">Button</Button>
+          <Button variant="contained" color="primary" disableElevation>
+            Button
+          </Button>
+          <Button variant="outlined" color="primary" disableElevation>
+            Button
+          </Button>
         </>
       }
     >

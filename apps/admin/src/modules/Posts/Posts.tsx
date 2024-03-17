@@ -11,7 +11,7 @@ const Posts = () => {
     <ViewLayout
       title="Posts"
       actions={
-        <Button component={Link} to={`${ROUTES.posts.path}/new`} variant="contained">
+        <Button component={Link} to={`${ROUTES.posts.path}/new`} variant="contained" color="primary" disableElevation>
           New Post
         </Button>
       }

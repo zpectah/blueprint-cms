@@ -1,12 +1,16 @@
-import React, { useState } from 'react';
-import { IconButton, Menu, MenuItem, MenuItemProps } from '@mui/material';
+import React, { useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { IconButton, Menu, MenuItem, ListItemText, ListItemIcon, Divider } from '@mui/material';
 import SettingsIcon from '@mui/icons-material/Settings';
+import Check from '@mui/icons-material/Check';
 import { useAppContext } from '../../../contexts';
 import { themeModeKeys } from '../../../enums';
+import { ThemeMode } from '../../../types';
 
 const ConfigMenu = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
+  const { i18n } = useTranslation();
   const { mode, setMode } = useAppContext();
 
   const open = Boolean(anchorEl);
@@ -18,25 +22,44 @@ const ConfigMenu = () => {
   const closeHandler = () => {
     setAnchorEl(null);
   };
-  const toggleThemeMode = () => {
-    const newMode = mode === themeModeKeys.light ? themeModeKeys.dark : themeModeKeys.light;
-
-    setMode(newMode);
+  const switchLanguageHandler = (lng: string) => {
+    i18n.changeLanguage(lng).then(() => {
+      closeHandler();
+    });
+  };
+  const switchThemeModeHandler = (mode: ThemeMode) => {
+    setMode(mode);
     closeHandler();
   };
 
-  const menuItems: Partial<MenuItemProps>[] = [
-    {
-      key: 1,
-      children: 'Toggle language',
-      onClick: closeHandler,
-    },
-    {
-      key: 2,
-      children: `Toggle theme ${mode}`,
-      onClick: toggleThemeMode,
-    },
-  ];
+  const languageMenuItems = useMemo(() => {
+    return [
+      {
+        key: 1,
+        label: 'English',
+        value: 'en',
+      },
+      {
+        key: 2,
+        label: 'Česky',
+        value: 'cs',
+      },
+    ];
+  }, []);
+  const modeMenuItems = useMemo(() => {
+    return [
+      {
+        key: 1,
+        label: 'Light',
+        value: themeModeKeys.light,
+      },
+      {
+        key: 2,
+        label: 'Dark',
+        value: themeModeKeys.dark,
+      },
+    ];
+  }, []);
 
   return (
     <>
@@ -58,9 +81,43 @@ const ConfigMenu = () => {
           'aria-labelledby': `${idPrefix}_button`,
         }}
       >
-        {menuItems.map((item) => (
-          <MenuItem {...item} />
-        ))}
+        {languageMenuItems.map((item) => {
+          const isSelected = item.value === i18n.language;
+
+          return (
+            <MenuItem key={item.key} selected={isSelected} onClick={() => switchLanguageHandler(item.value)} dense>
+              {isSelected ? (
+                <>
+                  <ListItemIcon>
+                    <Check />
+                  </ListItemIcon>
+                  {item.label}
+                </>
+              ) : (
+                <ListItemText inset>{item.label}</ListItemText>
+              )}
+            </MenuItem>
+          );
+        })}
+        <Divider />
+        {modeMenuItems.map((item) => {
+          const isSelected = item.value === mode;
+
+          return (
+            <MenuItem key={item.key} selected={isSelected} onClick={() => switchThemeModeHandler(item.value)} dense>
+              {isSelected ? (
+                <>
+                  <ListItemIcon>
+                    <Check />
+                  </ListItemIcon>
+                  {item.label}
+                </>
+              ) : (
+                <ListItemText inset>{item.label}</ListItemText>
+              )}
+            </MenuItem>
+          );
+        })}
       </Menu>
     </>
   );
