@@ -10,7 +10,7 @@ export type AppProviderProps = WithChildren;
 
 const AppProvider = ({ children }: AppProviderProps) => {
   const [mode, setMode] = useState<ThemeMode>(themeModeKeys.light);
-  const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
+  const [sidebarOpen, setSidebarOpen] = useState<boolean>(true);
 
   const mergedTheme = deepmerge({ palette: { mode } }, getDesignTokens(mode));
   const appContextValue = {
