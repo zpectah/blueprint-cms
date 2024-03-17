@@ -2,7 +2,11 @@ import React from 'react';
 import { DialogLayout } from '../../components';
 
 const Error = () => {
-  return <DialogLayout centered>...Error...</DialogLayout>;
+  return (
+    <DialogLayout>
+      <div>...Error...</div>
+    </DialogLayout>
+  );
 };
 
 export default Error;
