@@ -36,7 +36,7 @@ const SidebarScrollableContent = styled('div')({
 const SidebarSecondary = styled(Box)({});
 
 const Sidebar = () => {
-  const { sidebarOpen, setSidebarOpen } = useAppContext();
+  const { sidebarOpen } = useAppContext();
 
   return (
     <SidebarBase
@@ -69,7 +69,6 @@ const Sidebar = () => {
         <SidebarScrollable>
           <SidebarScrollableContent>
             Sidebar
-            <button onClick={() => setSidebarOpen(false)}>close</button>
             <br />
             <p>
               Euismod vestibulum, posuere fringilla molestie felis dui vel dolor consectetur urna, fusce ante porttitor

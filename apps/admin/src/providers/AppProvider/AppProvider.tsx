@@ -1,28 +1,28 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { deepmerge } from '@mui/utils';
 import { ThemeProvider, CssBaseline, createTheme } from '@mui/material';
-import { ThemeMode, WithChildren } from '../../types';
-import { themeModeKeys } from '../../enums';
+import { WithChildren } from '../../types';
 import { AppContextProvider } from '../../contexts';
 import { getDesignTokens } from '../../styles';
+import { useAppProviderValue } from './useAppProviderValue';
 
 export type AppProviderProps = WithChildren;
 
 const AppProvider = ({ children }: AppProviderProps) => {
-  const [mode, setMode] = useState<ThemeMode>(themeModeKeys.light);
-  const [sidebarOpen, setSidebarOpen] = useState<boolean>(true);
+  const { mode, setMode, sidebarOpen, setSidebarOpen } = useAppProviderValue();
 
-  const mergedTheme = deepmerge({ palette: { mode } }, getDesignTokens(mode));
-  const appContextValue = {
-    mode,
-    setMode,
-    sidebarOpen,
-    setSidebarOpen,
-  };
+  const theme = deepmerge({ palette: { mode } }, getDesignTokens(mode));
 
   return (
-    <AppContextProvider value={appContextValue}>
-      <ThemeProvider theme={createTheme(mergedTheme)}>
+    <AppContextProvider
+      value={{
+        mode,
+        setMode,
+        sidebarOpen,
+        setSidebarOpen,
+      }}
+    >
+      <ThemeProvider theme={createTheme(theme)}>
         <CssBaseline />
         {children}
       </ThemeProvider>

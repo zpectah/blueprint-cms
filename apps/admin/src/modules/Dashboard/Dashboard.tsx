@@ -1,16 +1,13 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { useAppContext } from '../../contexts';
 
 const Dashboard = () => {
   const { t } = useTranslation();
-  const { sidebarOpen, setSidebarOpen } = useAppContext();
 
   return (
     <>
       ...Dashboard...{t('button.open')}
       <br />
-      <button onClick={() => setSidebarOpen(!sidebarOpen)}>toggle sidebar</button>
       <br />
       <p>
         Euismod vestibulum, posuere fringilla molestie felis dui vel dolor consectetur urna, fusce ante porttitor mauris
