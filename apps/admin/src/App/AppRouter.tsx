@@ -1,5 +1,5 @@
 import React from 'react';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { RouterProvider, createBrowserRouter, Navigate } from 'react-router-dom';
 import { BASE_ROOT, PATH_ID_SUFFIX, ROUTES } from '../config';
 import { PageLayout } from '../components';
 import { Error, Login, LostPassword, Dashboard, Posts } from '../modules';
@@ -18,6 +18,10 @@ const AppRouter = () => {
       path: BASE_ROOT,
       element: <PageLayout />,
       children: [
+        {
+          path: BASE_ROOT,
+          element: <Navigate to={ROUTES.dashboard.path} replace />,
+        },
         {
           path: ROUTES.dashboard.path,
           element: <Dashboard />,
