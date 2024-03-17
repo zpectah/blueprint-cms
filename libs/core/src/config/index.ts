@@ -1,1 +1,2 @@
-export { default as PROJECT_CONF } from './project';
+export * from './cms';
+export * from './project';

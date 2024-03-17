@@ -2,7 +2,7 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 import { styled, Box, Container } from '@mui/material';
 import { useAppContext } from '../../../contexts';
-import { CONTAINER_Y_OFFSET, SIDEBAR_DESKTOP_WIDTH } from '../../../styles';
+import { CONTAINER_Y_OFFSET, SIDEBAR_DESKTOP_WIDTH, SPACING_BASE } from '../../../styles';
 import { Header } from '../Header';
 import { Footer } from '../Footer';
 import { Sidebar } from '../Sidebar';
@@ -63,6 +63,9 @@ const PageLayout = () => {
             <Container
               sx={{
                 paddingY: CONTAINER_Y_OFFSET,
+                display: 'flex',
+                flexDirection: 'column',
+                gap: SPACING_BASE,
               }}
             >
               <Outlet />

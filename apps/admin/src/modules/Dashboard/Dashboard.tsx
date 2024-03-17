@@ -1,14 +1,21 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { Card } from '@mui/material';
+import { ViewLayout } from '../../components';
 
 const Dashboard = () => {
   const { t } = useTranslation();
 
   return (
-    <>
+    <ViewLayout title="Dashboard" subtitle="Page view subtitle" actions={<>...actions...</>}>
+      <Card>
+        <br />
+        <br />
+        Card
+        <br />
+        <br />
+      </Card>
       ...Dashboard...{t('button.open')}
-      <br />
-      <br />
       <p>
         Euismod vestibulum, posuere fringilla molestie felis dui vel dolor consectetur urna, fusce ante porttitor mauris
         quam. Vitae elementum, fermentum sollicitudin volutpat ullamcorper ante vestibulum non, at nullam vestibulum nec
@@ -95,7 +102,7 @@ const Dashboard = () => {
         nec. Proin metus, sapien id odio morbi efficitur condimentum dolor ut tempus, sollicitudin vitae massa quis
         eget.
       </p>
-    </>
+    </ViewLayout>
   );
 };
 

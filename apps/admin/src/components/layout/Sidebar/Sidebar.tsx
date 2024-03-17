@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { styled, Box } from '@mui/material';
 import { useAppContext } from '../../../contexts';
 import {
@@ -37,6 +37,10 @@ const SidebarSecondary = styled(Box)({});
 
 const Sidebar = () => {
   const { sidebarOpen } = useAppContext();
+
+  const renderSecondary = useMemo(() => {
+    return <SidebarSecondary>Secondary</SidebarSecondary>;
+  }, []);
 
   return (
     <SidebarBase
@@ -117,7 +121,7 @@ const Sidebar = () => {
           </SidebarScrollableContent>
         </SidebarScrollable>
       </SidebarPrimary>
-      <SidebarSecondary>Secondary</SidebarSecondary>
+      {renderSecondary}
     </SidebarBase>
   );
 };
