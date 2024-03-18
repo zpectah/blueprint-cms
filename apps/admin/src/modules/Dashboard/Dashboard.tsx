@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Card } from '@mui/material';
+import { ENV_MODE } from '../../config';
 import { ViewLayout } from '../../components';
 
 const Dashboard = () => {
@@ -12,6 +13,8 @@ const Dashboard = () => {
         <br />
         <br />
         Card
+        <br />
+        Environment: {ENV_MODE}
         <br />
         <br />
       </Card>

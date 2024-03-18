@@ -1,1 +1,1 @@
-yarn nx build admin && node ./scripts/resources/post_build_htaccess.mjs admin
+yarn nx build admin --mode production && node ./scripts/resources/post_build_htaccess.mjs admin
