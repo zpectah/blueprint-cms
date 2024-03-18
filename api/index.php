@@ -2,6 +2,7 @@
 
 const PATH_ROOT = './';
 
+require_once 'env.php';
 require_once 'config/index.php';
 require_once 'core/index.php';
 
