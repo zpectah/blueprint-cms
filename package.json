@@ -6,8 +6,8 @@
   "scripts": {
     "start:admin": "nx serve admin",
     "start:client": "nx serve client",
-    "build:admin": "nx build admin",
-    "build:client": "nx build client",
+    "build:admin": "nx build admin && node ./scripts/post_build_htaccess.mjs admin",
+    "build:client": "nx build client && node ./scripts/post_build_htaccess.mjs client",
     "test": "vitest",
     "format:check": "prettier --check .",
     "format:write": "prettier --write .",
