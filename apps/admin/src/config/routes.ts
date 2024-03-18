@@ -18,6 +18,9 @@ export const ROUTES = {
   posts: {
     path: '/posts',
   },
+  profile: {
+    path: '/profile',
+  },
   settings: {
     path: '/settings',
   },

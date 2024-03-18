@@ -2,7 +2,7 @@ import React from 'react';
 import { RouterProvider, createBrowserRouter, Navigate } from 'react-router-dom';
 import { BASE_ROOT, PATH_ID_SUFFIX, ROUTES } from '../config';
 import { PageLayout } from '../components';
-import { Error, Login, LostPassword, Dashboard, Posts, Settings, Users } from '../modules';
+import { Error, Login, LostPassword, Dashboard, Posts, Profile, Settings, Users } from '../modules';
 
 const AppRouter = () => {
   const router = createBrowserRouter([
@@ -30,6 +30,10 @@ const AppRouter = () => {
         {
           path: ROUTES.settings.path,
           element: <Settings />,
+        },
+        {
+          path: ROUTES.profile.path,
+          element: <Profile />,
         },
         {
           path: ROUTES.posts.path,
