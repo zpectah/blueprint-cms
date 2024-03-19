@@ -1,5 +1,5 @@
 {
-  "name": "@blueprint-react-php-cms/source",
+  "name": "@blueprint-cms/source",
   "version": "0.0.0",
   "license": "MIT",
   "author": "Tomas Sychra <sychrat@gmail.com>",
@@ -29,6 +29,7 @@
     "react-dom": "18.2.0",
     "react-i18next": "^14.1.0",
     "react-router-dom": "6.11.2",
+    "swr": "^2.2.5",
     "tslib": "^2.3.0"
   },
   "devDependencies": {

@@ -1,5 +1,7 @@
 <?php
 
+use provider\RequestProvider;
+
 const PATH_ROOT = './';
 
 require_once 'env.php';

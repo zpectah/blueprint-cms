@@ -1,9 +1,17 @@
 <?php
 
+namespace provider;
+
+use model\Files;
+use model\Posts;
+use model\Users;
+
 class RequestProvider
 {
 
-  private function get_data($attributes, $params): array {
+  private function data_router($model, $action, $value): array {
+
+
     return [
       'data' => 'data'
     ];
@@ -11,27 +19,29 @@ class RequestProvider
 
   public function create_response (): array {
     $method = $_SERVER['REQUEST_METHOD'];
-    $queryString = $_SERVER['QUERY_STRING'];
+    $query = $_SERVER['QUERY_STRING'];
 
-    // Parse URL and get url attributes
-    $parsedUrl = $_GET['url'] ?? '';
-    $attributes = array_filter(explode('/', $parsedUrl));
-
-    // Parse QUERY and get url params
+    $url = $_GET['url'] ?? '';
+    $attributes = array_filter(explode('/', $url));
     $params = [];
-    parse_str($queryString, $params);
+    parse_str($query, $params);
 
-    $data = $this -> get_data($attributes, $params);
+    $version = $attributes[0] ?? false;
+    $model = $attributes[1] ?? false;
+    $action = $attributes[2] ?? false;
+    $value = $attributes[3] ?? false;
+
+    $data = $this -> data_router($model, $action, $value);
 
     return [
       'data' => $data,
-      // TODO
+      // META
       'method' => $method,
-      'test_x' => PROJECT['name'],
-      // TODO
-      'attributes' => $attributes,
-      'params' => $params,
-      // TODO
+      'version' => $version,
+      'model' => $model,
+      'action' => $action,
+      'value' => $value,
+      // DEBUG
       'env' => ENV,
     ];
   }
