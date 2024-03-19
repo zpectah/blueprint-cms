@@ -1,4 +1,5 @@
 import React from 'react';
+import { UsersItem } from '@blueprint/types';
 import { DataList } from '../../components';
 import { useUsers } from '../../hooks';
 
@@ -7,7 +8,7 @@ const UsersList = () => {
 
   return (
     <div>
-      <DataList items={users} />
+      <DataList<UsersItem> model="users" items={users} />
     </div>
   );
 };

@@ -1,18 +1,16 @@
-import { PostsItem, PostsList } from '@blueprint/types';
+import useSWR from 'swr';
+// import { PostsItem, PostsList } from '@blueprint/types';
 
 export const usePosts = () => {
-  const posts: PostsList = [];
-
-  const getDetail = (id: string | undefined): PostsItem | undefined => {
-    if (!id) return undefined;
-
-    return {
-      id: id,
-    };
-  };
+  // eslint-disable-next-line
+  // @ts-ignore
+  const fetcher = (...args) => fetch(...args).then((res) => res.json());
+  const { data: posts, error, isLoading } = useSWR('https://jsonplaceholder.typicode.com/posts', fetcher);
+  // const posts: PostsList = []; // https://jsonplaceholder.typicode.com/posts
 
   return {
     posts,
-    getDetail,
+    postsLoading: isLoading,
+    postsError: error,
   };
 };
