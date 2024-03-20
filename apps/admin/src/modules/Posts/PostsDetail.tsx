@@ -3,11 +3,11 @@ import { useParams } from 'react-router-dom';
 import { Button } from '@mui/material';
 import { ROUTES } from '../../config';
 import { DetailDrawer } from '../../components';
-import { usePostsDetail } from '../../hooks';
+import { usePostsDetail } from '../../model';
 
 const PostsDetail = () => {
   const { id } = useParams();
-  const { postDetail } = usePostsDetail(id);
+  const { detail } = usePostsDetail(id);
 
   return (
     <DetailDrawer
@@ -27,7 +27,7 @@ const PostsDetail = () => {
       }
     >
       <>
-        ...Posts Detail Form...#{id} ... {postDetail?.id}
+        ...Posts Detail Form...#{id} ... {detail?.id}
       </>
     </DetailDrawer>
   );

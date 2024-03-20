@@ -1,7 +1,7 @@
 import React from 'react';
 import { PostsItem } from '@blueprint/types';
 import { DataList } from '../../components';
-import { usePosts } from '../../hooks';
+import { usePosts } from '../../model';
 
 const PostsList = () => {
   const { posts } = usePosts();

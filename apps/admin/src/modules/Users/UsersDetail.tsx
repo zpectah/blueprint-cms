@@ -3,12 +3,11 @@ import { useParams } from 'react-router-dom';
 import { Button } from '@mui/material';
 import { ROUTES } from '../../config';
 import { DetailDrawer } from '../../components';
-import { useUsers } from '../../hooks';
+import { useUsersDetail } from '../../model';
 
 const UsersDetail = () => {
   const { id } = useParams();
-  const { getDetail } = useUsers();
-  const detailData = getDetail(id);
+  const { detail } = useUsersDetail(id);
 
   return (
     <DetailDrawer
@@ -28,10 +27,7 @@ const UsersDetail = () => {
       }
     >
       <>
-        ...Users Detail Form...#{id}
-        <pre>
-          <code>{JSON.stringify(detailData, null, 2)}</code>
-        </pre>
+        ...Users Detail Form...#{id} ... {detail?.id}
       </>
     </DetailDrawer>
   );
