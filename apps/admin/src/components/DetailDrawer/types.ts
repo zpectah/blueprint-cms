@@ -7,6 +7,9 @@ export interface DetailDrawerProps extends WithChildren {
   route: string;
   title?: string;
   subtitle?: string;
+  headerActions?: ReactNode;
   actions?: ReactNode;
   drawerProps?: Partial<DrawerProps>;
+  sidebar?: ReactNode;
+  sidebarWidth?: string;
 }
