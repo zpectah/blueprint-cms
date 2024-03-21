@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { styled, Box, Drawer, Typography } from '@mui/material';
 import { SPACING_BASE } from '../../styles';
+import { useBreakpoint } from '../../hooks';
 import { DetailDrawerProps } from './types';
 import DrawerCloseButton from './DrawerCloseButton';
 
@@ -91,7 +92,11 @@ const HeaderContainer = styled(Box)({
 const HeaderContainerActions = styled(Box)({});
 const HeaderContainerContent = styled(Box)({});
 const HeaderActions = styled(Box)({
-  alignSelf: 'flex-start',
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'flex-start',
+  gap: `calc(${SPACING_BASE} / 2)`,
 });
 
 const DetailDrawer = (props: DetailDrawerProps) => {
@@ -111,6 +116,7 @@ const DetailDrawer = (props: DetailDrawerProps) => {
   const [open, setOpen] = useState<boolean>(false);
 
   const navigate = useNavigate();
+  const { isMobile } = useBreakpoint();
 
   const closeHandler = () => navigate(route);
 
@@ -136,23 +142,26 @@ const DetailDrawer = (props: DetailDrawerProps) => {
           <DrawerHeader>
             <HeaderContainer>
               <HeaderContainerActions>
-                <DrawerCloseButton onClick={closeHandler} />
+                <DrawerCloseButton isMobile={isMobile} onClick={closeHandler} />
               </HeaderContainerActions>
               <HeaderContainerContent>
                 {title && <Typography>{title}</Typography>}
                 {subtitle && <Typography variant="caption">{subtitle}</Typography>}
               </HeaderContainerContent>
             </HeaderContainer>
-            {headerActions && <HeaderActions>{headerActions}</HeaderActions>}
+            <HeaderActions>{headerActions && headerActions}</HeaderActions>
           </DrawerHeader>
           <DrawerContainer>
             <DrawerContainerScrollable>
-              <DrawerContainerContent>{children}</DrawerContainerContent>
+              <DrawerContainerContent>
+                <div>{children}</div>
+                {isMobile && sidebar && <div>{sidebar}</div>}
+              </DrawerContainerContent>
             </DrawerContainerScrollable>
           </DrawerContainer>
           <DrawerFooter>{actions}</DrawerFooter>
         </DrawerMain>
-        {sidebar && (
+        {sidebar && !isMobile && (
           <DrawerSidebar width={sidebarWidth}>
             <DrawerSidebarScrollable>
               <DrawerSidebarContent>{sidebar}</DrawerSidebarContent>

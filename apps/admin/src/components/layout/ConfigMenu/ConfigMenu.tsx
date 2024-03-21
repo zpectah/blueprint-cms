@@ -68,6 +68,7 @@ const ConfigMenu = () => {
         aria-controls={open ? `${idPrefix}_menu` : undefined}
         aria-haspopup="true"
         aria-expanded={open ? 'true' : undefined}
+        color="inherit"
         onClick={clickHandler}
       >
         <SettingsIcon />

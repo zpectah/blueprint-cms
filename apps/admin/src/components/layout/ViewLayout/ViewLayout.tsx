@@ -11,7 +11,6 @@ const LayoutContent = styled(Box)({
   flex: 1,
 });
 const LayoutSidebar = styled(Box)({});
-
 const ContentHeading = styled(Box)({
   width: '100%',
   display: 'flex',
@@ -25,7 +24,6 @@ const ContentBody = styled(Box)({
   paddingBottom: SPACING_BASE,
 });
 const ContentFooter = styled(Box)({});
-
 const HeadingPrimary = styled(Box)({});
 const HeadingActions = styled(Box)({});
 
@@ -35,10 +33,11 @@ export interface ViewLayoutProps extends WithChildren {
   actions?: ReactNode;
   sidebar?: ReactNode;
   footer?: ReactNode;
+  sidebarWidth?: string;
 }
 
 const ViewLayout = (props: ViewLayoutProps) => {
-  const { children, title, subtitle, actions, sidebar, footer } = props;
+  const { children, title, subtitle, actions, sidebar, footer, sidebarWidth = '30%' } = props;
 
   return (
     <LayoutWrapper
@@ -70,7 +69,7 @@ const ViewLayout = (props: ViewLayoutProps) => {
           sx={{
             width: {
               xs: '100%',
-              md: '35%',
+              md: sidebarWidth,
             },
           }}
         >

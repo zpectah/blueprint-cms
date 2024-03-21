@@ -11,12 +11,24 @@ import {
 import { themeModeKeys } from '../../../enums';
 import { PrimaryMenu } from '../PrimaryMenu';
 
-const SidebarBase = styled(Box)({
+const SidebarBase = styled(Box)(({ theme }) => ({
   position: 'fixed',
   zIndex: 750,
   display: 'flex',
   flexDirection: 'column',
-});
+  borderRight: `1px solid ${theme.palette.divider}`,
+  transition: theme.transitions.create(['width', 'left'], {
+    duration: theme.transitions.duration.standard,
+    easing: theme.transitions.easing.easeInOut,
+    delay: 0,
+  }),
+  // TODO
+  // width: '',
+  // left: '',
+  // top: '',
+  // height: '',
+  // backgroundColor: '',
+}));
 const SidebarPrimary = styled(Box)({
   position: 'relative',
   flex: 1,

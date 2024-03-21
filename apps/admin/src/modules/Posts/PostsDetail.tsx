@@ -22,11 +22,11 @@ const PostsDetail = () => {
             <Button variant="contained" color="primary" disableElevation>
               Button
             </Button>
-            <Button variant="outlined" color="primary" disableElevation>
+            <Button variant="outlined" color="secondary" disableElevation>
               Button
             </Button>
           </Stack>
-          <Button variant="outlined" color="primary" disableElevation>
+          <Button variant="outlined" color="secondary" disableElevation>
             Button
           </Button>
         </>
@@ -36,11 +36,16 @@ const PostsDetail = () => {
           <Button variant="contained" color="primary" disableElevation>
             Button
           </Button>
+          <Button variant="contained" color="primary" disableElevation>
+            Button
+          </Button>
         </>
       }
       sidebar={
         <>
           <p>
+            SIDEBAR CONTENT
+            <br />
             Tristique dui, odio augue ut hendrerit donec cras dictum consequat varius, metus maximus dolor quis aliquam.
             Augue vitae massa, id dolor fermentum libero sed id tortor dui ut posuere, donec non congue tortor mattis.
             Tellus at nullam, et iaculis purus consequat tellus sagittis laoreet dolor quis, venenatis cras dictum

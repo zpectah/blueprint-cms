@@ -46,6 +46,7 @@ const UserMenu = () => {
         aria-haspopup="true"
         aria-expanded={open ? 'true' : undefined}
         onClick={clickHandler}
+        color="inherit"
       >
         <AccountCircleIcon />
       </IconButton>

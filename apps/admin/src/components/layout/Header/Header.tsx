@@ -11,6 +11,8 @@ import { Spotlight } from '../Spotlight';
 
 const HeaderBase = styled(Box)({
   width: '100%',
+  background: 'rgb(5,5,5)',
+  color: 'rgb(250,250,250)',
 });
 const HeaderInner = styled(Box)({
   width: '100%',
@@ -62,14 +64,14 @@ const Header = () => {
     >
       <HeaderInner>
         <HeaderPrimary>
-          <IconButton onClick={() => setSidebarOpen(!sidebarOpen)}>
+          <IconButton onClick={() => setSidebarOpen(!sidebarOpen)} color="inherit">
             <MenuIconElement />
           </IconButton>
         </HeaderPrimary>
         <HeaderTertiary>
           <HeaderCmsHeading>
             <Typography component="div">{CFG_CMS.name}</Typography>
-            <Typography component="small">{CFG_PROJECT.name}</Typography>
+            <Typography variant="caption">{CFG_PROJECT.name}</Typography>
           </HeaderCmsHeading>
         </HeaderTertiary>
         <HeaderSecondary>

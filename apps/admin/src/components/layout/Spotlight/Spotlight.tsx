@@ -37,7 +37,7 @@ const Spotlight = () => {
 
   return (
     <>
-      <IconButton onClick={openHandler}>
+      <IconButton onClick={openHandler} color="inherit">
         <SearchIcon />
       </IconButton>
       <Dialog fullWidth closeAfterTransition open={dialogOpen} onClose={closeHandler}>

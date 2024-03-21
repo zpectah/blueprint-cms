@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Card } from '@mui/material';
+import { Card, CardContent } from '@mui/material';
 import { ENV_MODE } from '../../config';
 import { ViewLayout } from '../../components';
 
@@ -10,13 +10,11 @@ const Dashboard = () => {
   return (
     <ViewLayout title="Dashboard" subtitle="Page view subtitle" actions={<>...actions...</>}>
       <Card>
-        <br />
-        <br />
-        Card
-        <br />
-        Environment: {ENV_MODE}
-        <br />
-        <br />
+        <CardContent>
+          Card
+          <br />
+          Environment: {ENV_MODE}
+        </CardContent>
       </Card>
       ...Dashboard...{t('button.open')}
       <p>
