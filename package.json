@@ -6,14 +6,16 @@
   "scripts": {
     "start:admin": "nx serve admin",
     "start:client": "nx serve client",
-    "build:admin": "/bin/sh ./scripts/build:admin.sh",
-    "build:client": "/bin/sh ./scripts/build:client.sh",
-    "build:api": "/bin/sh ./scripts/build:api.sh",
-    "build": "/bin/sh ./scripts/build.sh",
+    "build:admin": "bash ./scripts/build:admin.sh",
+    "build:client": "bash ./scripts/build:client.sh",
+    "build:api": "bash ./scripts/build:api.sh",
+    "build": "bash ./scripts/build.sh",
     "test": "vitest",
     "format:check": "prettier --check .",
     "format:write": "prettier --write .",
-    "lint": "eslint"
+    "lint": "eslint",
+    "sql:dump": "bash ./scripts/sql:dump.sh",
+    "sql:create:user": "bash ./scripts/sql:create:user.sh"
   },
   "type": "module",
   "private": true,

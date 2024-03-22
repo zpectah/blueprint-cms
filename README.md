@@ -64,3 +64,12 @@ Set up your hosts in `/private/etc/hosts`
 * ``format:write`` Runs formatting
 * ``lint`` Runs eslint for all project
 
+### Scripts with configuration
+
+Continue only if you know what are you doing.
+
+As default mysql service is set `/Applications/MAMP/Library/bin/mysql`, set it to `mysql` when needed.
+
+* ``sql:dump`` Creates sql dump in root folder
+* ``sql:create:user <name> <email> <password>`` Creates test user for development purposes
+
