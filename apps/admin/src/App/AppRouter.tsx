@@ -1,6 +1,6 @@
 import React from 'react';
 import { RouterProvider, createBrowserRouter, Navigate } from 'react-router-dom';
-import { BASE_ROOT, PATH_ID_SUFFIX, ROUTES } from '../config';
+import { BASE_ROOT, PATH_ID_SUFFIX, PATH_PANEL_SUFFIX, ROUTES } from '../config';
 import { PageLayout } from '../components';
 import { Error, Playground, Login, LostPassword, Dashboard, Posts, Profile, Settings, Users } from '../modules';
 
@@ -34,6 +34,12 @@ const AppRouter = () => {
         {
           path: ROUTES.settings.path,
           element: <Settings />,
+          children: [
+            {
+              path: `${ROUTES.settings.path}${PATH_PANEL_SUFFIX}`,
+              element: <Settings />,
+            },
+          ],
         },
         {
           path: ROUTES.profile.path,
