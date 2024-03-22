@@ -22,7 +22,7 @@ const PrimaryMenu = ({ onMobileMenuItemClick, onDesktopMenuItemClick }: PrimaryM
   };
 
   return (
-    <MenuList>
+    <MenuList sx={{ paddingY: 0 }}>
       {PRIMARY_MENU.map(({ key, label, path, menuItemsProps, listItemTextProps }) => (
         <MenuItem
           key={key}

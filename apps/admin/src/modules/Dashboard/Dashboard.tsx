@@ -8,7 +8,35 @@ const Dashboard = () => {
   const { t } = useTranslation();
 
   return (
-    <ViewLayout title="Dashboard" subtitle="Page view subtitle" actions={<>...actions...</>}>
+    <ViewLayout
+      title="Dashboard"
+      subtitle="Page view subtitle"
+      actions={<>...actions...</>}
+      sidebar={
+        <>
+          <p>
+            SIDEBAR CONTENT
+            <br />
+            Porttitor non nulla, dolor quis purus vivamus dui imperdiet ut nisl mauris id, aliquet commodo maximus
+            fermentum. Imperdiet nisl, nulla in donec volutpat vestibulum euismod sem odio ut id ante, auctor ac nibh at
+            sem scelerisque. Interdum aliquam, ac nec bibendum nullam suscipit sapien ultrices adipiscing, suscipit non
+            aliquet faucibus. Bibendum et vehicula, maximus molestie tempus a scelerisque curabitur nunc ollicitudin,
+            sagittis vulputate efficitur magna et. Aliquet bibendum, mollis tristique quam nunc consequat et elit
+            suspendisse, vivamus vulputate elementum consequat. Vivamus rhoncus, ultricies sed porttitor id consequat
+            fermentum proin fermentum, consectetur justo mollis molestie.
+            <br />
+            <br />
+            Sapien pretium accumsan, fusce vitae vehicula suscipit dui et tempus dui quisque enim, varius elit bibendum
+            sagittis. Maximus sagittis, neque etiam hendrerit rhoncus erat vehicula quis finibus, elit varius libero
+            adipiscing. Proin molestie, purus arcu duis id pharetra vehicula fringilla vitae massa, convallis cras
+            dictum id dolor purus. Turpis nunc, viverra dui hendrerit nec fusce ante sit amet volutpat, id nulla
+            elementum erat. Neque elit, lectus adipiscing dui vel integer leo vitae bibendum egestas, volutpat integer
+            nulla rhoncus at. Porta ipsum, libero vitae ut congue ollicitudin ligula laoreet pellentesque, rhoncus at
+            odio leo cursus feugiat.
+          </p>
+        </>
+      }
+    >
       <Card>
         <CardContent>
           Card

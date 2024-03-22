@@ -39,10 +39,13 @@ const DrawerSidebarContent = styled(Box)({
   position: 'absolute',
   top: 0,
   left: 0,
-  paddingLeft: SPACING_BASE,
-  paddingRight: SPACING_BASE,
+  padding: SPACING_BASE,
+
+  '& p:first-of-type': {
+    marginTop: 0,
+  },
 });
-const DrawerHeader = styled(Box)({
+const DrawerHeader = styled(Box)(({ theme }) => ({
   width: '100%',
   height: 'auto',
   padding: SPACING_BASE,
@@ -51,6 +54,12 @@ const DrawerHeader = styled(Box)({
   alignItems: 'center',
   justifyContent: 'space-between',
   gap: SPACING_BASE,
+  borderBottom: `1px solid ${theme.palette.divider}`,
+}));
+const DrawerInner = styled(Box)({
+  flex: 1,
+  display: 'flex',
+  flexDirection: 'row',
 });
 const DrawerContainer = styled(Box)({
   position: 'relative',
@@ -70,10 +79,8 @@ const DrawerContainerContent = styled(Box)({
   position: 'absolute',
   top: 0,
   left: 0,
-  paddingLeft: SPACING_BASE,
-  paddingRight: SPACING_BASE,
 });
-const DrawerFooter = styled(Box)({
+const DrawerFooter = styled(Box)(({ theme }) => ({
   width: '100%',
   height: 'auto',
   padding: SPACING_BASE,
@@ -82,7 +89,8 @@ const DrawerFooter = styled(Box)({
   alignItems: 'center',
   justifyContent: 'space-between',
   gap: SPACING_BASE,
-});
+  borderTop: `1px solid ${theme.palette.divider}`,
+}));
 const HeaderContainer = styled(Box)({
   flex: 1,
   display: 'flex',
@@ -100,6 +108,21 @@ const HeaderActions = styled(Box)({
   justifyContent: 'flex-start',
   gap: `calc(${SPACING_BASE} / 2)`,
 });
+const DrawerContainerContentInner = styled(Box)({
+  padding: SPACING_BASE,
+
+  '& p:first-of-type': {
+    marginTop: 0,
+  },
+});
+const DrawerContainerContentSidebar = styled(Box)(({ theme }) => ({
+  padding: SPACING_BASE,
+  borderTop: `1px solid ${theme.palette.divider}`,
+
+  '& p:first-of-type': {
+    marginTop: 0,
+  },
+}));
 
 const DetailDrawer = (props: DetailDrawerProps) => {
   const {
@@ -153,23 +176,25 @@ const DetailDrawer = (props: DetailDrawerProps) => {
             </HeaderContainer>
             <HeaderActions>{headerActions && headerActions}</HeaderActions>
           </DrawerHeader>
-          <DrawerContainer>
-            <DrawerContainerScrollable>
-              <DrawerContainerContent>
-                <div>{children}</div>
-                {isMobile && sidebar && <div>{sidebar}</div>}
-              </DrawerContainerContent>
-            </DrawerContainerScrollable>
-          </DrawerContainer>
+          <DrawerInner>
+            <DrawerContainer>
+              <DrawerContainerScrollable>
+                <DrawerContainerContent>
+                  <DrawerContainerContentInner>{children}</DrawerContainerContentInner>
+                  {isMobile && sidebar && <DrawerContainerContentSidebar>{sidebar}</DrawerContainerContentSidebar>}
+                </DrawerContainerContent>
+              </DrawerContainerScrollable>
+            </DrawerContainer>
+            {sidebar && !isMobile && (
+              <DrawerSidebar width={sidebarWidth}>
+                <DrawerSidebarScrollable>
+                  <DrawerSidebarContent>{sidebar}</DrawerSidebarContent>
+                </DrawerSidebarScrollable>
+              </DrawerSidebar>
+            )}
+          </DrawerInner>
           <DrawerFooter>{actions}</DrawerFooter>
         </DrawerMain>
-        {sidebar && !isMobile && (
-          <DrawerSidebar width={sidebarWidth}>
-            <DrawerSidebarScrollable>
-              <DrawerSidebarContent>{sidebar}</DrawerSidebarContent>
-            </DrawerSidebarScrollable>
-          </DrawerSidebar>
-        )}
       </DrawerWrapper>
     </Drawer>
   );

@@ -57,6 +57,9 @@ const UserMenu = () => {
         onClose={closeHandler}
         MenuListProps={{
           'aria-labelledby': `${idPrefix}_button`,
+          sx: {
+            paddingY: 0,
+          },
         }}
       >
         {menuItems.map((item) => (
