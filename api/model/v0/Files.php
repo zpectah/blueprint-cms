@@ -1,8 +1,8 @@
 <?php
 
-namespace model;
+namespace model\v0;
 
-class Posts
+class Files
 {
 
   public function get() {

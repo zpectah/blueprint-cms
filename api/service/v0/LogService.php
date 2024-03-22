@@ -1,6 +1,6 @@
 <?php
 
-namespace service;
+namespace service\v0;
 
 class LogService
 {

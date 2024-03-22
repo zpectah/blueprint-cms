@@ -1,12 +1,8 @@
 <?php
 
-namespace provider;
+namespace core;
 
-use model\Files;
-use model\Posts;
-use model\Users;
-
-class RequestProvider
+class RequestHandler
 {
 
   private function data_router($model, $action, $value): array {
@@ -33,17 +29,24 @@ class RequestProvider
 
     $data = $this -> data_router($model, $action, $value);
 
-    return [
-      'data' => $data,
-      // META
-      'method' => $method,
-      'version' => $version,
-      'model' => $model,
-      'action' => $action,
-      'value' => $value,
-      // DEBUG
-      'env' => ENV,
-    ];
+    if ($version === CURRENT_VERSION) {
+      return [
+        'data' => $data,
+        // META
+        'method' => $method,
+        'version' => $version,
+        'model' => $model,
+        'action' => $action,
+        'value' => $value,
+        // DEBUG
+        'env' => ENV,
+      ];
+    } else {
+      return [
+        'status' => 400,
+        'message' => 'UNSUPPORTED_API_VERSION'
+      ];
+    }
   }
 
 }
