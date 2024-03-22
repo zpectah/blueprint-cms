@@ -1,11 +1,10 @@
 <?php
 
 const PATH_ROOT = './';
-const CURRENT_VERSION = 'v0';
 
-require_once 'env.php';
-require_once 'config/index.php';
-require_once 'core/index.php';
+require PATH_ROOT . 'env.php';
+require PATH_ROOT . 'config/index.php';
+require PATH_ROOT . 'core/index.php';
 
 $RequestHandler = new \core\RequestHandler;
 

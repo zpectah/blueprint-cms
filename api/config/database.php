@@ -1,9 +1,9 @@
 <?php
 
-const SQL = [
-  'local' => [
+const CFG_SQL = [
+  'development' => [
     'server' => 'localhost',
-    'name' => '<database_name>',
+    'name' => 'blueprint_test',
     'user' => 'root',
     'password' => 'root',
     'port' => 3306,
@@ -17,5 +17,10 @@ const SQL = [
   ],
 ];
 
-// TODO - set by current environment
-const ENV_SQL = SQL['local'];
+const SQL_CONNECTION = [
+  CFG_SQL[ENV]['server'],
+  CFG_SQL[ENV]['user'],
+  CFG_SQL[ENV]['password'],
+  CFG_SQL[ENV]['name'],
+  CFG_SQL[ENV]['port'],
+];
