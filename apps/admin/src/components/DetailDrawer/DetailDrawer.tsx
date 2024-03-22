@@ -17,7 +17,9 @@ const DrawerMain = styled(Box)({
   display: 'flex',
   flexDirection: 'column',
 });
-const DrawerSidebar = styled(Box)<{ width: string }>(({ width, theme }) => ({
+const DrawerSidebar = styled(Box, {
+  shouldForwardProp: (propName) => propName !== 'width',
+})<{ readonly width: string }>(({ width, theme }) => ({
   width,
   height: '100%',
   position: 'relative',

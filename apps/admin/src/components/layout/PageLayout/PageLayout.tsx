@@ -18,7 +18,9 @@ const WrapperBase = styled(Box)({
   display: 'flex',
   flexDirection: 'column',
 });
-const WrapperInner = styled(Box)<{ open: boolean; isMobile: boolean }>(({ open, isMobile, theme }) => ({
+const WrapperInner = styled(Box, {
+  shouldForwardProp: (propName) => propName !== 'isMobile' && propName !== 'open',
+})<{ readonly open: boolean; readonly isMobile: boolean }>(({ open, isMobile, theme }) => ({
   display: 'flex',
   flexDirection: 'row',
   flex: 1,
