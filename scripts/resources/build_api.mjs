@@ -35,12 +35,20 @@ function replaceApiEnv(directory) {
   console.log(`File ${fileName} successfully created at ${filePath}`);
 }
 
+function buildApiCallback(source, target) {
+  copyFolder(source, target);
+  replaceApiEnv(target);
+}
+
 function buildApi() {
   const sourceFolder = './api';
   const targetFolder = './dist/api';
 
-  copyFolder(sourceFolder, targetFolder);
-  replaceApiEnv(targetFolder);
+  if (fs.existsSync(targetFolder)) {
+    fs.rm(targetFolder, () => buildApiCallback(sourceFolder, targetFolder));
+  } else {
+    buildApiCallback(sourceFolder, targetFolder);
+  }
 }
 
 buildApi();
