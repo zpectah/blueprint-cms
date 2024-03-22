@@ -2,10 +2,14 @@ import React from 'react';
 import { RouterProvider, createBrowserRouter, Navigate } from 'react-router-dom';
 import { BASE_ROOT, PATH_ID_SUFFIX, ROUTES } from '../config';
 import { PageLayout } from '../components';
-import { Error, Login, LostPassword, Dashboard, Posts, Profile, Settings, Users } from '../modules';
+import { Error, Playground, Login, LostPassword, Dashboard, Posts, Profile, Settings, Users } from '../modules';
 
 const AppRouter = () => {
   const router = createBrowserRouter([
+    {
+      path: ROUTES.playground.path,
+      element: <Playground />,
+    },
     {
       path: ROUTES.login.path,
       element: <Login />,

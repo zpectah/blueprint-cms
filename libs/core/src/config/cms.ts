@@ -1,5 +1,5 @@
 export const CFG_CMS = {
-  name: 'Blueprint CMS',
+  name: 'BlueprintCMS',
   description: 'CMS Description ... if needed somewhere',
   version: '0.0.1',
   repository: 'https://github.com/zpectah/blueprint-cms',
@@ -11,7 +11,4 @@ export const CFG_CMS = {
     email: 'sychrat@gmail.com',
     web: 'zpecter.com',
   },
-  copyright_year: 2024,
-  author_name: 'Tomas Sychra',
-  author_email: 'sychrat@gmail.com',
 };

@@ -6,6 +6,9 @@ export const ROUTES = {
   error: {
     path: '*',
   },
+  playground: {
+    path: '/playground',
+  },
   login: {
     path: '/login',
   },

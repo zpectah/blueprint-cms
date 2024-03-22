@@ -5,15 +5,19 @@ import MenuOpenIcon from '@mui/icons-material/MenuOpen';
 import { CFG_CMS, CFG_PROJECT } from '@blueprint/core';
 import { HEADER_DESKTOP_HEIGHT, HEADER_MOBILE_HEIGHT, SPACING_BASE } from '../../../styles';
 import { useAppContext } from '../../../contexts';
+import { useBreakpoint } from '../../../hooks';
 import { UserMenu } from '../UserMenu';
 import { ConfigMenu } from '../ConfigMenu';
 import { Spotlight } from '../Spotlight';
 
-const HeaderBase = styled(Box)({
+const HeaderBase = styled(Box, {
+  shouldForwardProp: (propName) => propName !== 'isMobile',
+})<{ readonly isMobile: boolean }>(({ isMobile, theme }) => ({
   width: '100%',
+  height: isMobile ? HEADER_MOBILE_HEIGHT : HEADER_DESKTOP_HEIGHT,
   background: 'rgb(5,5,5)',
   color: 'rgb(250,250,250)',
-});
+}));
 const HeaderInner = styled(Box)({
   width: '100%',
   height: '100%',
@@ -49,19 +53,12 @@ const HeaderCmsHeading = styled(Box)({
 
 const Header = () => {
   const { sidebarOpen, setSidebarOpen } = useAppContext();
+  const { isMobile } = useBreakpoint();
 
   const MenuIconElement = sidebarOpen ? MenuOpenIcon : MenuIcon;
 
   return (
-    <HeaderBase
-      component="header"
-      sx={{
-        height: {
-          xs: HEADER_MOBILE_HEIGHT,
-          md: HEADER_DESKTOP_HEIGHT,
-        },
-      }}
-    >
+    <HeaderBase component="header" isMobile={isMobile}>
       <HeaderInner>
         <HeaderPrimary>
           <IconButton onClick={() => setSidebarOpen(!sidebarOpen)} color="inherit">
@@ -69,10 +66,24 @@ const Header = () => {
           </IconButton>
         </HeaderPrimary>
         <HeaderTertiary>
-          <HeaderCmsHeading>
-            <Typography component="div">{CFG_CMS.name}</Typography>
-            <Typography variant="caption">{CFG_PROJECT.name}</Typography>
-          </HeaderCmsHeading>
+          {!isMobile && (
+            <HeaderCmsHeading>
+              <Typography variant="h4" component="div" sx={{ lineHeight: 1.1 }}>
+                {CFG_CMS.name}
+              </Typography>
+              <Typography
+                sx={{
+                  margin: 0,
+                  fontSize: '.65rem',
+                  fontWeight: 400,
+                  letterSpacing: '.075em',
+                  opacity: 0.5,
+                }}
+              >
+                {CFG_PROJECT.name}
+              </Typography>
+            </HeaderCmsHeading>
+          )}
         </HeaderTertiary>
         <HeaderSecondary>
           <Spotlight />

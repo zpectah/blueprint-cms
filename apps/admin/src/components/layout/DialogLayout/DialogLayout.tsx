@@ -27,9 +27,10 @@ const WrapperInner = styled(Box)({
 
 export interface DialogLayoutProps extends WithChildren {
   containerProps?: Partial<ContainerProps>;
+  disableFooter?: boolean;
 }
 
-const DialogLayout = ({ children, containerProps }: DialogLayoutProps) => {
+const DialogLayout = ({ children, containerProps, disableFooter }: DialogLayoutProps) => {
   return (
     <WrapperBase>
       <WrapperInner
@@ -39,7 +40,7 @@ const DialogLayout = ({ children, containerProps }: DialogLayoutProps) => {
       >
         <Container {...containerProps}>
           <main>{children}</main>
-          <Footer />
+          {!disableFooter && <Footer />}
         </Container>
       </WrapperInner>
     </WrapperBase>

@@ -135,7 +135,7 @@ const DetailDrawer = (props: DetailDrawerProps) => {
     children,
     drawerProps,
     sidebar,
-    sidebarWidth = '30%',
+    sidebarWidth = '17rem',
   } = props;
 
   const [open, setOpen] = useState<boolean>(false);
@@ -170,8 +170,8 @@ const DetailDrawer = (props: DetailDrawerProps) => {
                 <DrawerCloseButton isMobile={isMobile} onClick={closeHandler} />
               </HeaderContainerActions>
               <HeaderContainerContent>
-                {title && <Typography>{title}</Typography>}
-                {subtitle && <Typography variant="caption">{subtitle}</Typography>}
+                {title && <Typography variant="h4">{title}</Typography>}
+                {subtitle && <Typography variant="subtitle2">{subtitle}</Typography>}
               </HeaderContainerContent>
             </HeaderContainer>
             <HeaderActions>{headerActions && headerActions}</HeaderActions>

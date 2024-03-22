@@ -12,7 +12,7 @@ const LayoutContent = styled(Box)({
   flex: 1,
 });
 const LayoutSidebar = styled(Box, {
-  shouldForwardProp: (propName) => propName !== 'isMobile',
+  shouldForwardProp: (propName) => propName !== 'isMobile' && propName !== 'width',
 })<{ readonly isMobile: boolean; readonly width: string }>(({ isMobile, width, theme }) => ({
   width: isMobile ? '100%' : width,
   padding: isMobile ? 0 : SPACING_BASE,
@@ -24,7 +24,7 @@ const ContentHeading = styled(Box)(({ theme }) => ({
   width: '100%',
   display: 'flex',
   paddingTop: SPACING_BASE,
-  paddingBottom: SPACING_BASE,
+  paddingBottom: `calc(${SPACING_BASE} * 2)`,
   flexDirection: 'row',
   alignItems: 'center',
   justifyContent: 'space-between',
@@ -77,8 +77,8 @@ const ViewLayout = (props: ViewLayoutProps) => {
       <LayoutContent>
         <ContentHeading>
           <HeadingPrimary>
-            <Typography>{title}</Typography>
-            {subtitle && <Typography>{subtitle}</Typography>}
+            <Typography variant="h2">{title}</Typography>
+            {subtitle && <Typography variant="subtitle1">{subtitle}</Typography>}
           </HeadingPrimary>
           {actions && <HeadingActions>{actions}</HeadingActions>}
         </ContentHeading>
