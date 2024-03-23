@@ -9,7 +9,7 @@ const Playground = () => {
         <div>
           <Typography variant="h1">Typography H1: [hero title, "super title"]</Typography>
           <Typography variant="h2">Typography H2: [page title]</Typography>
-          <Typography variant="h3">Typography H3: [dialog title, drawer title]</Typography>
+          <Typography variant="h3">Typography H3: [dialog title, drawer title, panel title]</Typography>
           <Typography variant="h4">Typography H4: [card title]</Typography>
           <Typography variant="h5">Typography H5</Typography>
           <Typography variant="h6">Typography H6</Typography>

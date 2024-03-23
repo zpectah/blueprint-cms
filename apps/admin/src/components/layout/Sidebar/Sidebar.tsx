@@ -1,5 +1,5 @@
 import React from 'react';
-import { styled, Box } from '@mui/material';
+import { styled, Box, Alert } from '@mui/material';
 import { useAppContext } from '../../../contexts';
 import {
   SIDEBAR_DESKTOP_WIDTH,
@@ -7,27 +7,31 @@ import {
   HEADER_DESKTOP_HEIGHT,
   HEADER_MOBILE_HEIGHT,
   PALETTE,
+  SPACING_BASE,
 } from '../../../styles';
 import { themeModeKeys } from '../../../enums';
 import { PrimaryMenu } from '../PrimaryMenu';
+import { useBreakpoint } from '../../../hooks';
 
-const SidebarBase = styled(Box)(({ theme }) => ({
+const SidebarBase = styled(Box, {
+  shouldForwardProp: (propName) => propName !== 'isMobile',
+})<{ readonly isMobile: boolean; readonly open: boolean }>(({ theme, isMobile, open }) => ({
   position: 'fixed',
   zIndex: 750,
   display: 'flex',
   flexDirection: 'column',
-  borderRight: `1px solid ${theme.palette.divider}`,
+  borderRight: isMobile ? 0 : `1px solid ${theme.palette.divider}`,
   transition: theme.transitions.create(['width', 'left'], {
     duration: theme.transitions.duration.standard,
     easing: theme.transitions.easing.easeInOut,
     delay: 0,
   }),
-  // TODO
-  // width: '',
-  // left: '',
-  // top: '',
-  // height: '',
-  // backgroundColor: '',
+  backgroundColor:
+    theme.palette.mode === themeModeKeys.light ? PALETTE.backgroundDefault.light : PALETTE.backgroundDefault.dark,
+  width: isMobile ? SIDEBAR_MOBILE_WIDTH : SIDEBAR_DESKTOP_WIDTH,
+  height: isMobile ? `calc(100% - ${HEADER_MOBILE_HEIGHT})` : `calc(100% - ${HEADER_DESKTOP_HEIGHT})`,
+  top: isMobile ? HEADER_MOBILE_HEIGHT : HEADER_DESKTOP_HEIGHT,
+  left: isMobile ? (open ? 0 : `calc(${SIDEBAR_MOBILE_WIDTH} * -1)`) : open ? 0 : `calc(${SIDEBAR_DESKTOP_WIDTH} * -1)`,
 }));
 const SidebarPrimary = styled(Box)({
   position: 'relative',
@@ -48,40 +52,16 @@ const SidebarScrollableContent = styled('div')({
   top: 0,
   left: 0,
 });
-const SidebarSecondary = styled(Box)({});
+const SidebarSecondary = styled(Box)({
+  padding: SPACING_BASE,
+});
 
 const Sidebar = () => {
   const { sidebarOpen, setSidebarOpen } = useAppContext();
+  const { isMobile } = useBreakpoint();
 
   return (
-    <SidebarBase
-      component="aside"
-      sx={(theme) => ({
-        width: {
-          xs: sidebarOpen ? SIDEBAR_MOBILE_WIDTH : 0,
-          md: sidebarOpen ? SIDEBAR_DESKTOP_WIDTH : 0,
-        },
-        left: {
-          xs: sidebarOpen ? 0 : `calc(${SIDEBAR_MOBILE_WIDTH} * -1)`,
-          md: sidebarOpen ? 0 : `calc(${SIDEBAR_DESKTOP_WIDTH} * -1)`,
-        },
-        top: {
-          xs: HEADER_MOBILE_HEIGHT,
-          md: HEADER_DESKTOP_HEIGHT,
-        },
-        height: {
-          xs: `calc(100% - ${HEADER_MOBILE_HEIGHT})`,
-          md: `calc(100% - ${HEADER_DESKTOP_HEIGHT})`,
-        },
-        backgroundColor: {
-          xs:
-            theme.palette.mode === themeModeKeys.light
-              ? PALETTE.backgroundDefault.light
-              : PALETTE.backgroundDefault.dark,
-          md: 'inherit',
-        },
-      })}
-    >
+    <SidebarBase id="cms-sidebar" component="aside" isMobile={isMobile} open={sidebarOpen}>
       <SidebarPrimary>
         <SidebarScrollable>
           <SidebarScrollableContent>
@@ -89,7 +69,11 @@ const Sidebar = () => {
           </SidebarScrollableContent>
         </SidebarScrollable>
       </SidebarPrimary>
-      <SidebarSecondary>{/* TODO */}</SidebarSecondary>
+      <SidebarSecondary>
+        <Alert severity="info" icon={false}>
+          Some information string about profile settings, etc.
+        </Alert>
+      </SidebarSecondary>
     </SidebarBase>
   );
 };

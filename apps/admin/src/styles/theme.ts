@@ -58,6 +58,22 @@ export const getDesignTokens = (mode: ThemeMode): DeepPartial<Theme> => {
         defaultProps: {
           disableElevation: true,
         },
+        styleOverrides: {},
+      },
+      MuiMenuItem: {
+        defaultProps: {},
+        styleOverrides: {
+          root: {
+            '#cms-sidebar &': {
+              paddingTop: '.75rem',
+              paddingBottom: '.75rem',
+
+              '&.Mui-selected': {
+                borderRight: `2px solid rgb(170,3,83)`,
+              },
+            },
+          },
+        },
       },
     },
   };

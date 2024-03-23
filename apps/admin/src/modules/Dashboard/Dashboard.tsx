@@ -11,6 +11,12 @@ const Dashboard = () => {
     <ViewLayout
       title="Dashboard"
       subtitle="Page view subtitle"
+      alerts={[
+        {
+          key: 0,
+          title: 'Some information alert message',
+        },
+      ]}
       actions={<>...actions...</>}
       sidebar={
         <>

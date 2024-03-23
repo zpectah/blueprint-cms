@@ -30,6 +30,7 @@ export const ROUTES = {
     panels: {
       global: 'global',
       client: 'client',
+      locales: 'locales',
       admin: 'admin',
       system: 'system',
     },

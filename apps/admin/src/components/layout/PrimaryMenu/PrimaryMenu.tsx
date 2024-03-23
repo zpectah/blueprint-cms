@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { MenuList, MenuItem, ListItemText } from '@mui/material';
+import { MenuList, MenuItem, ListItemText, ListItemIcon } from '@mui/material';
 import { PRIMARY_MENU } from '../../../constants';
 import { useBreakpoint } from '../../../hooks';
 
@@ -23,15 +23,21 @@ const PrimaryMenu = ({ onMobileMenuItemClick, onDesktopMenuItemClick }: PrimaryM
 
   return (
     <MenuList sx={{ paddingY: 0 }}>
-      {PRIMARY_MENU.map(({ key, label, path, menuItemsProps, listItemTextProps }) => (
+      {PRIMARY_MENU.map(({ key, label, path, menuItemsProps, listItemTextProps, icon: Icon }) => (
         <MenuItem
           key={key}
           component={Link}
           to={path}
           selected={pathname.includes(path)}
           onClick={(e: MouseEvent) => menuItemClickHandler(e, key)}
+          divider
           {...menuItemsProps}
         >
+          {Icon && (
+            <ListItemIcon>
+              <Icon />
+            </ListItemIcon>
+          )}
           <ListItemText {...listItemTextProps}>{label}</ListItemText>
         </MenuItem>
       ))}

@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { styled, Box, Typography } from '@mui/material';
+import { styled, Box, Typography, Alert, AlertProps, AlertTitle } from '@mui/material';
 import { WithChildren } from '../../../types';
 import { SPACING_BASE } from '../../../styles';
 import { useBreakpoint } from '../../../hooks';
@@ -46,6 +46,18 @@ const ContentBody = styled(Box)({
 const ContentFooter = styled(Box)({});
 const HeadingPrimary = styled(Box)({});
 const HeadingActions = styled(Box)({});
+const MessagesWrapper = styled(Box)({
+  paddingTop: SPACING_BASE,
+  paddingBottom: SPACING_BASE,
+  display: 'flex',
+  flexDirection: 'column',
+  gap: SPACING_BASE,
+});
+
+type AlertMessageProps = {
+  key: string | number;
+  title?: ReactNode;
+} & Partial<AlertProps>;
 
 export interface ViewLayoutProps extends WithChildren {
   title: string;
@@ -54,10 +66,11 @@ export interface ViewLayoutProps extends WithChildren {
   sidebar?: ReactNode;
   footer?: ReactNode;
   sidebarWidth?: string;
+  alerts?: AlertMessageProps[];
 }
 
 const ViewLayout = (props: ViewLayoutProps) => {
-  const { children, title, subtitle, actions, sidebar, footer, sidebarWidth = '30%' } = props;
+  const { children, title, subtitle, actions, sidebar, footer, sidebarWidth = '30%', alerts = [] } = props;
 
   const { isMobile } = useBreakpoint();
 
@@ -82,6 +95,16 @@ const ViewLayout = (props: ViewLayoutProps) => {
           </HeadingPrimary>
           {actions && <HeadingActions>{actions}</HeadingActions>}
         </ContentHeading>
+        {alerts.length > 0 && (
+          <MessagesWrapper>
+            {alerts.map(({ key, children, title, ...rest }) => (
+              <Alert key={key} {...rest}>
+                {title && <AlertTitle>{title}</AlertTitle>}
+                {children}
+              </Alert>
+            ))}
+          </MessagesWrapper>
+        )}
         <ContentInner isMobile={isMobile}>
           <ContentBody>{children}</ContentBody>
           {sidebar && (

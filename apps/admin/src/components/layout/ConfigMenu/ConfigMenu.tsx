@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { IconButton, Menu, MenuItem, ListItemText, ListItemIcon, Divider } from '@mui/material';
-import SettingsIcon from '@mui/icons-material/Settings';
+import TuneIcon from '@mui/icons-material/Tune';
 import Check from '@mui/icons-material/Check';
 import { useAppContext } from '../../../contexts';
 import { themeModeKeys } from '../../../enums';
@@ -71,7 +71,7 @@ const ConfigMenu = () => {
         color="inherit"
         onClick={clickHandler}
       >
-        <SettingsIcon />
+        <TuneIcon />
       </IconButton>
       <Menu
         id={`${idPrefix}_menu`}
