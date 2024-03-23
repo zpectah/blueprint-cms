@@ -19,11 +19,11 @@ export const ROUTES = {
   dashboard: {
     path: '/dashboard',
   },
-  posts: {
-    path: '/posts',
-  },
   profile: {
     path: '/profile',
+  },
+  help: {
+    path: '/help',
   },
   settings: {
     path: '/settings',
@@ -37,5 +37,11 @@ export const ROUTES = {
   },
   users: {
     path: '/users',
+  },
+  posts: {
+    path: '/posts',
+  },
+  files: {
+    path: '/files',
   },
 };

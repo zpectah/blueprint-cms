@@ -14,7 +14,7 @@ const Users = () => {
         title: 'Users',
       }}
       actions={
-        <Button component={Link} to={`${ROUTES.users.path}/new`} variant="contained" color="primary" disableElevation>
+        <Button component={Link} to={`${ROUTES.users.path}/new`} variant="contained" color="primary">
           New user
         </Button>
       }

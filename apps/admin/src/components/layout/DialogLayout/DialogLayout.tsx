@@ -47,7 +47,7 @@ const DialogLayout = ({ children, containerProps, disableFooter, meta }: DialogL
       >
         <Container {...containerProps}>
           <main>{children}</main>
-          {!disableFooter && <Footer />}
+          {!disableFooter && <Footer disableHelpLink />}
         </Container>
       </WrapperInner>
     </WrapperBase>

@@ -1,5 +1,7 @@
 export * from './Dashboard';
 export * from './Error';
+export * from './Files';
+export * from './Help';
 export * from './Login';
 export * from './LostPassword';
 export * from './Playground';

@@ -2,7 +2,19 @@ import React from 'react';
 import { RouterProvider, createBrowserRouter, Navigate } from 'react-router-dom';
 import { BASE_ROOT, PATH_ID_SUFFIX, PATH_PANEL_SUFFIX, ROUTES } from '../config';
 import { PageLayout } from '../components';
-import { Error, Playground, Login, LostPassword, Dashboard, Posts, Profile, Settings, Users } from '../modules';
+import {
+  Error,
+  Playground,
+  Login,
+  LostPassword,
+  Dashboard,
+  Posts,
+  Profile,
+  Settings,
+  Users,
+  Help,
+  Files,
+} from '../modules';
 
 const AppRouter = () => {
   const router = createBrowserRouter([
@@ -42,6 +54,10 @@ const AppRouter = () => {
           ],
         },
         {
+          path: ROUTES.help.path,
+          element: <Help />,
+        },
+        {
           path: ROUTES.profile.path,
           element: <Profile />,
         },
@@ -62,6 +78,16 @@ const AppRouter = () => {
             {
               path: `${ROUTES.users.path}${PATH_ID_SUFFIX}`,
               element: <Users />,
+            },
+          ],
+        },
+        {
+          path: ROUTES.files.path,
+          element: <Files />,
+          children: [
+            {
+              path: `${ROUTES.files.path}${PATH_ID_SUFFIX}`,
+              element: <Files />,
             },
           ],
         },
