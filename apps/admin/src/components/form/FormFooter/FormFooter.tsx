@@ -4,11 +4,12 @@ import { FormBlock, FormBlockProps } from '../FormBlock';
 
 export interface FormFooterProps extends FormBlockProps {
   justify?: 'start' | 'center' | 'end' | 'between';
+  direction?: 'column' | 'row';
   dense?: boolean;
 }
 
 const FormFooter = (props: FormFooterProps) => {
-  const { children, justify = 'between', boxProps, dense = true, ...rest } = props;
+  const { children, justify = 'between', direction = 'row', boxProps, dense = true, ...rest } = props;
 
   const justifyContent = {
     start: 'flex-start',
@@ -24,12 +25,12 @@ const FormFooter = (props: FormFooterProps) => {
         ...boxProps,
         sx: {
           display: 'flex',
-          flexDirection: 'row',
+          flexDirection: direction,
           alignItems: 'center',
           justifyContent: justifyContent[justify],
           paddingTop: denseOffset,
           paddingBottom: denseOffset,
-          gap: denseOffset,
+          gap: SPACING_BASE,
           ...boxProps?.sx,
         },
       }}

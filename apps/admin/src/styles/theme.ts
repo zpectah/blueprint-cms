@@ -92,6 +92,17 @@ export const getDesignTokens = (mode: ThemeMode): DeepPartial<Theme> => {
       },
       MuiFormLabel: {
         defaultProps: {},
+        styleOverrides: {
+          root: {
+            fontSize: '.85rem',
+            fontWeight: 600,
+          },
+        },
+      },
+      MuiOutlinedInput: {
+        defaultProps: {
+          size: 'small',
+        },
         styleOverrides: {},
       },
       MuiTextField: {

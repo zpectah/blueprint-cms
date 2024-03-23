@@ -14,4 +14,5 @@ export interface FormFieldProps extends WithChildren {
   helperTexts?: Partial<FormFieldMessageProps>[];
   helperTextProps?: Partial<FormFieldMessageProps>;
   inputBoxProps?: Partial<BoxProps>;
+  required?: boolean;
 }

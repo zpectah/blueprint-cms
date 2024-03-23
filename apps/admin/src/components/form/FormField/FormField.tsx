@@ -58,7 +58,7 @@ const FieldMessageItem = styled(Typography, {
 });
 
 const FormField = (props: FormFieldProps) => {
-  const { children, label, fieldId, helperTexts = [], helperTextProps, inputBoxProps } = props;
+  const { children, label, fieldId, helperTexts = [], helperTextProps, inputBoxProps, required } = props;
 
   const inputBoxComposedProps: Partial<BoxProps> = {
     ...inputBoxProps,
@@ -70,7 +70,11 @@ const FormField = (props: FormFieldProps) => {
 
   return (
     <FieldWrapper>
-      {label && <FieldLabel htmlFor={fieldId}>{label}</FieldLabel>}
+      {label && (
+        <FieldLabel htmlFor={fieldId} required={required}>
+          {label}
+        </FieldLabel>
+      )}
       <FieldContent>
         <FieldInput {...inputBoxComposedProps}>{children}</FieldInput>
         {helperTexts.length > 0 && (
