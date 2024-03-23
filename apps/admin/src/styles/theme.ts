@@ -75,6 +75,16 @@ export const getDesignTokens = (mode: ThemeMode): DeepPartial<Theme> => {
           },
         },
       },
+      MuiFormLabel: {
+        defaultProps: {},
+        styleOverrides: {},
+      },
+      MuiTextField: {
+        defaultProps: {
+          size: 'small',
+        },
+        styleOverrides: {},
+      },
     },
   };
 };

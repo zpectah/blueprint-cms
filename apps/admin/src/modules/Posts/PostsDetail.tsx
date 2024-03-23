@@ -1,9 +1,9 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { Button, Stack } from '@mui/material';
+import { Button, Stack, TextField } from '@mui/material';
 import { ROUTES } from '../../config';
 import { SPACING_BASE } from '../../styles';
-import { DetailDrawer } from '../../components';
+import { DetailDrawer, Form, FormBlock, FormField, FormFieldset } from '../../components';
 import { usePostsDetail } from '../../model';
 
 const PostsDetail = () => {
@@ -66,8 +66,114 @@ const PostsDetail = () => {
       }
     >
       <>
-        ...Posts Detail Form...#{id} ... {detail?.id}
-        <br />
+        <Form>
+          <FormBlock title="Form block title">
+            <div>
+              ...Posts Detail Form...#{id} ... {detail?.id}
+            </div>
+            <FormFieldset legend="Fieldset legend ...">
+              <FormField
+                fieldId="test01"
+                label="Field label"
+                helperTexts={[
+                  {
+                    children: 'Helper text #1',
+                  },
+                  {
+                    children: 'Helper success text #1',
+                    severity: 'success',
+                  },
+                  {
+                    children: 'Warning text #1',
+                    severity: 'warning',
+                  },
+                  {
+                    children: 'Error text #1',
+                    severity: 'error',
+                  },
+                ]}
+              >
+                <TextField id="test01" />
+                <TextField id="test02" />
+                <TextField id="test03" />
+              </FormField>
+            </FormFieldset>
+            <FormFieldset legend="Fieldset legend ...">
+              <FormField
+                fieldId="test01"
+                label="Field label"
+                helperTexts={[
+                  {
+                    children: 'Helper text #1',
+                  },
+                  {
+                    children: 'Helper success text #1',
+                    severity: 'success',
+                  },
+                  {
+                    children: 'Warning text #1',
+                    severity: 'warning',
+                  },
+                  {
+                    children: 'Error text #1',
+                    severity: 'error',
+                  },
+                ]}
+              >
+                <TextField id="test01" />
+                <TextField id="test02" />
+                <TextField id="test03" />
+              </FormField>
+              <FormField
+                fieldId="test01"
+                label="Field label"
+                helperTexts={[
+                  {
+                    children: 'Helper text #1',
+                  },
+                  {
+                    children: 'Helper success text #1',
+                    severity: 'success',
+                  },
+                  {
+                    children: 'Warning text #1',
+                    severity: 'warning',
+                  },
+                  {
+                    children: 'Error text #1',
+                    severity: 'error',
+                  },
+                ]}
+              >
+                <TextField id="test01" fullWidth />
+              </FormField>
+            </FormFieldset>
+            <FormField
+              fieldId="test01"
+              label="Field label"
+              helperTexts={[
+                {
+                  children: 'Helper text #1',
+                },
+                {
+                  children: 'Helper success text #1',
+                  severity: 'success',
+                },
+                {
+                  children: 'Warning text #1',
+                  severity: 'warning',
+                },
+                {
+                  children: 'Error text #1',
+                  severity: 'error',
+                },
+              ]}
+            >
+              <TextField id="test01" fullWidth />
+            </FormField>
+            <div>...</div>
+          </FormBlock>
+        </Form>
         <p>
           Tristique dui, odio augue ut hendrerit donec cras dictum consequat varius, metus maximus dolor quis aliquam.
           Augue vitae massa, id dolor fermentum libero sed id tortor dui ut posuere, donec non congue tortor mattis.
