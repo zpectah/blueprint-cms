@@ -4,6 +4,7 @@ export type CloseButtonProps = Partial<IconButtonProps> & {
   iconProps?: SvgIconProps;
 };
 
-export type CheckButtonProps = ButtonProps & {
+export type CheckButtonProps = Omit<ButtonProps, 'onClick'> & {
   checked?: boolean;
+  onChecked?: (checked: boolean) => void;
 };
