@@ -1,6 +1,7 @@
 import { Theme } from '@mui/material';
 import { PALETTE } from './constants';
 import { DeepPartial, ThemeMode } from '../types';
+import { PAGE_LAYOUT_NOTIFICATION_LIST_ID } from '../constants';
 
 export const getDesignTokens = (mode: ThemeMode): DeepPartial<Theme> => {
   // TODO
@@ -116,6 +117,24 @@ export const getDesignTokens = (mode: ThemeMode): DeepPartial<Theme> => {
           variant: 'outlined',
         },
         styleOverrides: {},
+      },
+      MuiAlert: {
+        defaultProps: {},
+        styleOverrides: {
+          root: {
+            [`#${PAGE_LAYOUT_NOTIFICATION_LIST_ID} &`]: {
+              borderRadius: 0,
+            },
+          },
+        },
+      },
+      MuiAlertTitle: {
+        defaultProps: {},
+        styleOverrides: {
+          root: {
+            fontWeight: 600,
+          },
+        },
       },
     },
   } as DeepPartial<Theme>;

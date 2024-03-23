@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { styled, Box, Typography, Alert, AlertProps, AlertTitle } from '@mui/material';
+import { styled, Box, Typography, Alert, AlertTitle, AlertProps } from '@mui/material';
 import { WithChildren } from '../../../types';
 import { SPACING_BASE } from '../../../styles';
 import { useBreakpoint, useDocumentMeta } from '../../../hooks';
@@ -22,15 +22,18 @@ const LayoutSidebar = styled(Box, {
 }));
 const ContentHeading = styled(Box)(({ theme }) => ({
   width: '100%',
-  display: 'flex',
   paddingTop: SPACING_BASE,
   paddingBottom: `calc(${SPACING_BASE} * 2)`,
+  borderBottom: `1px solid ${theme.palette.divider}`,
+}));
+const ContentHeadingContent = styled(Box)({
+  width: '100%',
+  display: 'flex',
   flexDirection: 'row',
   alignItems: 'center',
   justifyContent: 'space-between',
   gap: SPACING_BASE,
-  borderBottom: `1px solid ${theme.palette.divider}`,
-}));
+});
 const ContentInner = styled(Box, {
   shouldForwardProp: (propName) => propName !== 'isMobile',
 })<{ readonly isMobile: boolean }>(({ isMobile, theme }) => ({
@@ -95,11 +98,13 @@ const ViewLayout = (props: ViewLayoutProps) => {
     >
       <LayoutContent>
         <ContentHeading>
-          <HeadingPrimary>
-            <Typography variant="h2">{title}</Typography>
-            {subtitle && <Typography variant="subtitle1">{subtitle}</Typography>}
-          </HeadingPrimary>
-          {actions && <HeadingActions>{actions}</HeadingActions>}
+          <ContentHeadingContent>
+            <HeadingPrimary>
+              <Typography variant="h2">{title}</Typography>
+              {subtitle && <Typography variant="subtitle1">{subtitle}</Typography>}
+            </HeadingPrimary>
+            {actions && <HeadingActions>{actions}</HeadingActions>}
+          </ContentHeadingContent>
         </ContentHeading>
         {alerts.length > 0 && (
           <MessagesWrapper>

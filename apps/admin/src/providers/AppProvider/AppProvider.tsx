@@ -6,7 +6,7 @@ import { AppContextProvider } from '../../contexts';
 import { getDesignTokens } from '../../styles';
 import { useAppProviderValue } from './useAppProviderValue';
 
-export type AppProviderProps = WithChildren;
+type AppProviderProps = WithChildren;
 
 const AppProvider = ({ children }: AppProviderProps) => {
   const { mode, setMode, sidebarOpen, setSidebarOpen } = useAppProviderValue();

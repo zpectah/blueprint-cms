@@ -1,12 +1,14 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import { styled, Box, Container } from '@mui/material';
+import { PAGE_LAYOUT_NOTIFICATION_LIST_ID } from '../../../constants';
 import { useAppContext } from '../../../contexts';
 import { useBreakpoint } from '../../../hooks';
 import { CONTAINER_Y_OFFSET, SIDEBAR_DESKTOP_WIDTH, SPACING_BASE } from '../../../styles';
 import { Header } from '../Header';
 import { Footer } from '../Footer';
 import { Sidebar } from '../Sidebar';
+import { NotificationsList } from '../NotificationsList';
 
 const WrapperBase = styled(Box)({
   width: '100%',
@@ -33,6 +35,7 @@ const WrapperInner = styled(Box, {
     delay: 0,
   }),
 }));
+const ContentOuter = styled(Box)({ flex: 1, width: '100%', height: '100%', display: 'flex', flexDirection: 'column' });
 const ContentContainer = styled('main')({
   flex: 1,
   width: '100%',
@@ -65,14 +68,17 @@ const PageLayout = () => {
       <Header />
       <WrapperInner open={sidebarOpen} isMobile={isMobile}>
         <Sidebar />
-        <ContentContainer>
-          <ContentScrollable>
-            <Content>
-              <Outlet />
-              <Footer />
-            </Content>
-          </ContentScrollable>
-        </ContentContainer>
+        <ContentOuter>
+          <NotificationsList id={PAGE_LAYOUT_NOTIFICATION_LIST_ID} />
+          <ContentContainer>
+            <ContentScrollable>
+              <Content>
+                <Outlet />
+                <Footer />
+              </Content>
+            </ContentScrollable>
+          </ContentContainer>
+        </ContentOuter>
       </WrapperInner>
     </WrapperBase>
   );

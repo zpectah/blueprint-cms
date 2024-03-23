@@ -2,7 +2,7 @@ import { createContext, useContext } from 'react';
 import { themeModeKeys } from '../enums';
 import { ThemeMode } from '../types';
 
-export interface AppContextProps {
+interface AppContextProps {
   mode: ThemeMode;
   setMode: (mode: ThemeMode) => void;
   sidebarOpen: boolean;

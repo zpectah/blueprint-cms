@@ -1,11 +1,14 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Card, CardContent } from '@mui/material';
+import { Card, CardContent, Button } from '@mui/material';
 import { ENV_MODE } from '../../config';
+import { useAppNotificationsContext } from '../../contexts';
 import { ViewLayout } from '../../components';
 
 const Dashboard = () => {
   const { t } = useTranslation();
+
+  const { notifications, addNotification } = useAppNotificationsContext();
 
   return (
     <ViewLayout
@@ -14,12 +17,12 @@ const Dashboard = () => {
       meta={{
         title: 'Dashboard',
       }}
-      alerts={[
-        {
-          key: 0,
-          title: 'Some information alert message',
-        },
-      ]}
+      // alerts={[
+      //   {
+      //     key: 0,
+      //     title: 'Some information alert message',
+      //   },
+      // ]}
       actions={<>...actions...</>}
       sidebar={
         <>
@@ -34,6 +37,32 @@ const Dashboard = () => {
             suspendisse, vivamus vulputate elementum consequat. Vivamus rhoncus, ultricies sed porttitor id consequat
             fermentum proin fermentum, consectetur justo mollis molestie.
             <br />
+            <span>
+              <Button
+                onClick={() =>
+                  addNotification({
+                    id: 'some-alert-id',
+                    title: 'Notification title',
+                    onClose: () => {
+                      console.log('my onClose callback');
+                    },
+                  })
+                }
+              >
+                Create notification
+              </Button>
+              <Button
+                onClick={() =>
+                  addNotification({
+                    id: 'some-alert-autoclose-id',
+                    title: 'Notification title',
+                    autoClose: 5000,
+                  })
+                }
+              >
+                Create autoclose
+              </Button>
+            </span>
             <br />
             Sapien pretium accumsan, fusce vitae vehicula suscipit dui et tempus dui quisque enim, varius elit bibendum
             sagittis. Maximus sagittis, neque etiam hendrerit rhoncus erat vehicula quis finibus, elit varius libero
@@ -54,6 +83,7 @@ const Dashboard = () => {
         </CardContent>
       </Card>
       ...Dashboard...{t('button.open')}
+      <div>{JSON.stringify(notifications, null, 2)}</div>
       <p>
         Euismod vestibulum, posuere fringilla molestie felis dui vel dolor consectetur urna, fusce ante porttitor mauris
         quam. Vitae elementum, fermentum sollicitudin volutpat ullamcorper ante vestibulum non, at nullam vestibulum nec
