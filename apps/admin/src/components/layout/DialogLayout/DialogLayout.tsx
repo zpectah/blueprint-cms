@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { styled, Box, Container, ContainerProps } from '@mui/material';
 import { WithChildren } from '../../../types';
 import { useDocumentMeta } from '../../../hooks';
@@ -33,9 +33,10 @@ export interface DialogLayoutProps extends WithChildren {
     title?: string;
     description?: string;
   };
+  backgroundSlot?: ReactNode;
 }
 
-const DialogLayout = ({ children, containerProps, disableFooter, meta }: DialogLayoutProps) => {
+const DialogLayout = ({ children, containerProps, disableFooter, meta, backgroundSlot }: DialogLayoutProps) => {
   useDocumentMeta(meta);
 
   return (
@@ -45,6 +46,7 @@ const DialogLayout = ({ children, containerProps, disableFooter, meta }: DialogL
           paddingY: CONTAINER_Y_OFFSET,
         }}
       >
+        {backgroundSlot && backgroundSlot}
         <Container {...containerProps}>
           <main>{children}</main>
           {!disableFooter && <Footer disableHelpLink />}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { DialogLayout } from '../../components';
+import { DialogLayout, BodyBackground } from '../../components';
 import { LoginForm } from './LoginForm';
 
 const Login = () => {
@@ -9,6 +9,7 @@ const Login = () => {
         title: 'Login',
       }}
       containerProps={{ maxWidth: 'sm' }}
+      backgroundSlot={<BodyBackground />}
     >
       <LoginForm />
     </DialogLayout>

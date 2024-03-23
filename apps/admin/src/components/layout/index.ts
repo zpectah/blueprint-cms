@@ -1,3 +1,4 @@
+export * from './Background';
 export * from './ConfigMenu';
 export * from './DialogLayout';
 export * from './Footer';

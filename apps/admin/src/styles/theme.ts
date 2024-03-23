@@ -1,17 +1,17 @@
 import { Theme } from '@mui/material';
 import { PALETTE } from './constants';
 import { DeepPartial, ThemeMode } from '../types';
-import { PAGE_LAYOUT_NOTIFICATION_LIST_ID } from '../constants';
+import { COLOR_PRIMARY, COLOR_SECONDARY, LAYOUT_SIDEBAR_ID, PAGE_LAYOUT_NOTIFICATION_LIST_ID } from '../constants';
 
 export const getDesignTokens = (mode: ThemeMode): DeepPartial<Theme> => {
   // TODO
   return {
     palette: {
       primary: {
-        main: 'rgb(170,3,83)',
+        main: COLOR_PRIMARY,
       },
       secondary: {
-        main: 'rgb(110,110,110)',
+        main: COLOR_SECONDARY,
       },
       background: {
         default: mode === 'light' ? PALETTE.backgroundDefault.light : PALETTE.backgroundDefault.dark,
@@ -80,12 +80,12 @@ export const getDesignTokens = (mode: ThemeMode): DeepPartial<Theme> => {
         defaultProps: {},
         styleOverrides: {
           root: {
-            '#cms-sidebar &': {
+            [`#${LAYOUT_SIDEBAR_ID} &`]: {
               paddingTop: '.75rem',
               paddingBottom: '.75rem',
 
               '&.Mui-selected': {
-                borderRight: `2px solid rgb(170,3,83)`,
+                borderRight: `2px solid ${COLOR_PRIMARY}`,
               },
             },
           },

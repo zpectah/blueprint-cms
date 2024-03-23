@@ -10,8 +10,9 @@ import {
   SPACING_BASE,
 } from '../../../styles';
 import { themeModeKeys } from '../../../enums';
-import { PrimaryMenu } from '../PrimaryMenu';
 import { useBreakpoint } from '../../../hooks';
+import { LAYOUT_SIDEBAR_ID } from '../../../constants';
+import { PrimaryMenu } from '../PrimaryMenu';
 
 const SidebarBase = styled(Box, {
   shouldForwardProp: (propName) => propName !== 'isMobile',
@@ -61,7 +62,7 @@ const Sidebar = () => {
   const { isMobile } = useBreakpoint();
 
   return (
-    <SidebarBase id="cms-sidebar" component="aside" isMobile={isMobile} open={sidebarOpen}>
+    <SidebarBase id={LAYOUT_SIDEBAR_ID} component="aside" isMobile={isMobile} open={sidebarOpen}>
       <SidebarPrimary>
         <SidebarScrollable>
           <SidebarScrollableContent>

@@ -15,7 +15,7 @@ const FilesDetail = () => {
       id={id}
       route={ROUTES.users.path}
       title="File title"
-      subtitle="Detail subtitle"
+      // subtitle="Detail subtitle"
       actions={
         <>
           <Stack direction="row" gap={SPACING_BASE}>
