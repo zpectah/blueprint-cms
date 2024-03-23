@@ -1,10 +1,7 @@
 import React from 'react';
-import { IconButton, IconButtonProps, SvgIconProps } from '@mui/material';
+import { IconButton } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
-
-export type CloseButtonProps = Partial<IconButtonProps> & {
-  iconProps?: SvgIconProps;
-};
+import { CloseButtonProps } from './types';
 
 const CloseButton = (props: CloseButtonProps) => {
   const { iconProps, ...rest } = props;

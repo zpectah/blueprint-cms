@@ -3,10 +3,11 @@ import AppRouter from './AppRouter';
 import { AppProvider } from '../providers';
 import { ErrorBoundary } from '../components';
 import '../i18n';
-import '@fontsource/lato/100.css';
-import '@fontsource/lato/300.css';
-import '@fontsource/lato/400.css';
-import '@fontsource/lato/700.css';
+import '@fontsource/open-sans/300.css';
+import '@fontsource/open-sans/500.css';
+import '@fontsource/open-sans/600.css';
+import '@fontsource/open-sans/700.css';
+import '@fontsource/open-sans/800.css';
 
 const App = () => {
   return (

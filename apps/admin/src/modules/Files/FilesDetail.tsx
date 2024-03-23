@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { Button, Stack } from '@mui/material';
 import { ROUTES } from '../../config';
 import { SPACING_BASE } from '../../styles';
-import { DetailDrawer } from '../../components';
+import { DetailDrawer, CheckButton } from '../../components';
 import { useUsersDetail } from '../../model';
 
 const FilesDetail = () => {
@@ -19,14 +19,12 @@ const FilesDetail = () => {
       actions={
         <>
           <Stack direction="row" gap={SPACING_BASE}>
-            <Button variant="contained" color="primary" disableElevation>
+            <Button variant="contained" color="primary">
               Button
             </Button>
-            <Button variant="outlined" color="primary" disableElevation>
-              Button
-            </Button>
+            <CheckButton>Save as template</CheckButton>
           </Stack>
-          <Button variant="outlined" color="primary" disableElevation>
+          <Button variant="outlined" color="primary">
             Button
           </Button>
         </>

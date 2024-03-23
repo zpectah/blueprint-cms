@@ -17,9 +17,10 @@ export const getDesignTokens = (mode: ThemeMode): DeepPartial<Theme> => {
       },
     },
     typography: {
+      fontFamily: '"Open Sans", sans-serif',
       h1: {
         fontSize: '2.35rem',
-        fontWeight: 100,
+        fontWeight: 300,
       },
       h2: {
         fontSize: '2rem',
@@ -50,7 +51,8 @@ export const getDesignTokens = (mode: ThemeMode): DeepPartial<Theme> => {
       // body1: {},
       // body2: {},
       button: {
-        fontWeight: 700,
+        fontWeight: 600,
+        textTransform: 'none',
       },
     },
     components: {
@@ -69,7 +71,9 @@ export const getDesignTokens = (mode: ThemeMode): DeepPartial<Theme> => {
         defaultProps: {
           disableElevation: true,
         },
-        styleOverrides: {},
+        styleOverrides: {
+          root: {},
+        },
       },
       MuiMenuItem: {
         defaultProps: {},
@@ -97,5 +101,5 @@ export const getDesignTokens = (mode: ThemeMode): DeepPartial<Theme> => {
         styleOverrides: {},
       },
     },
-  };
+  } as DeepPartial<Theme>;
 };
