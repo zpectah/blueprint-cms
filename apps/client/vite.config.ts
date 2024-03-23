@@ -30,6 +30,7 @@ export default defineConfig({
     commonjsOptions: {
       transformMixedEsModules: true,
     },
+    chunkSizeWarningLimit: 750, // TODO
   },
 
   test: {
