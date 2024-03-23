@@ -51,7 +51,7 @@ export const getDesignTokens = (mode: ThemeMode): DeepPartial<Theme> => {
       // body1: {},
       // body2: {},
       button: {
-        fontWeight: 600,
+        fontWeight: 700,
         textTransform: 'none',
       },
     },
@@ -97,6 +97,12 @@ export const getDesignTokens = (mode: ThemeMode): DeepPartial<Theme> => {
       MuiTextField: {
         defaultProps: {
           size: 'small',
+        },
+        styleOverrides: {},
+      },
+      MuiCard: {
+        defaultProps: {
+          variant: 'outlined',
         },
         styleOverrides: {},
       },

@@ -1,5 +1,6 @@
 import React from 'react';
 import { DialogLayout } from '../../components';
+import { LoginForm } from './LoginForm';
 
 const Login = () => {
   return (
@@ -7,8 +8,9 @@ const Login = () => {
       meta={{
         title: 'Login',
       }}
+      containerProps={{ maxWidth: 'sm' }}
     >
-      <div>...Login form...</div>
+      <LoginForm />
     </DialogLayout>
   );
 };
