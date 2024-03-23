@@ -3,7 +3,11 @@ import { DialogLayout } from '../../components';
 
 const LostPassword = () => {
   return (
-    <DialogLayout>
+    <DialogLayout
+      meta={{
+        title: 'Lost Password',
+      }}
+    >
       <div>...LostPassword...</div>
     </DialogLayout>
   );

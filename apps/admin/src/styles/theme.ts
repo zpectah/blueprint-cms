@@ -54,6 +54,17 @@ export const getDesignTokens = (mode: ThemeMode): DeepPartial<Theme> => {
       },
     },
     components: {
+      MuiDivider: {
+        defaultProps: {},
+        styleOverrides: {
+          root: {
+            'ul .MuiMenuItem-root + &': {
+              marginTop: 0,
+              marginBottom: 0,
+            },
+          },
+        },
+      },
       MuiButton: {
         defaultProps: {
           disableElevation: true,

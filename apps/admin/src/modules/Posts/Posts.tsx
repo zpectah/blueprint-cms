@@ -10,6 +10,9 @@ const Posts = () => {
   return (
     <ViewLayout
       title="Posts"
+      meta={{
+        title: 'Posts',
+      }}
       actions={
         <Button component={Link} to={`${ROUTES.posts.path}/new`} variant="contained" color="primary" disableElevation>
           New Post

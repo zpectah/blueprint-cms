@@ -3,7 +3,11 @@ import { DialogLayout } from '../../components';
 
 const Login = () => {
   return (
-    <DialogLayout>
+    <DialogLayout
+      meta={{
+        title: 'Login',
+      }}
+    >
       <div>...Login form...</div>
     </DialogLayout>
   );

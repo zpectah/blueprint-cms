@@ -1,6 +1,7 @@
 import React from 'react';
 import { styled, Box, Container, ContainerProps } from '@mui/material';
 import { WithChildren } from '../../../types';
+import { useDocumentMeta } from '../../../hooks';
 import { CONTAINER_Y_OFFSET } from '../../../styles';
 import { Footer } from '../Footer';
 
@@ -28,9 +29,15 @@ const WrapperInner = styled(Box)({
 export interface DialogLayoutProps extends WithChildren {
   containerProps?: Partial<ContainerProps>;
   disableFooter?: boolean;
+  meta?: {
+    title?: string;
+    description?: string;
+  };
 }
 
-const DialogLayout = ({ children, containerProps, disableFooter }: DialogLayoutProps) => {
+const DialogLayout = ({ children, containerProps, disableFooter, meta }: DialogLayoutProps) => {
+  useDocumentMeta(meta);
+
   return (
     <WrapperBase>
       <WrapperInner

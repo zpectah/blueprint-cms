@@ -10,6 +10,9 @@ const Users = () => {
   return (
     <ViewLayout
       title="Users"
+      meta={{
+        title: 'Users',
+      }}
       actions={
         <Button component={Link} to={`${ROUTES.users.path}/new`} variant="contained" color="primary" disableElevation>
           New user

@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 import { styled, Box, Typography, Alert, AlertProps, AlertTitle } from '@mui/material';
 import { WithChildren } from '../../../types';
 import { SPACING_BASE } from '../../../styles';
-import { useBreakpoint } from '../../../hooks';
+import { useBreakpoint, useDocumentMeta } from '../../../hooks';
 
 const LayoutWrapper = styled(Box)({
   width: '100%',
@@ -67,12 +67,18 @@ export interface ViewLayoutProps extends WithChildren {
   footer?: ReactNode;
   sidebarWidth?: string;
   alerts?: AlertMessageProps[];
+  meta?: {
+    title?: string;
+    description?: string;
+  };
 }
 
 const ViewLayout = (props: ViewLayoutProps) => {
-  const { children, title, subtitle, actions, sidebar, footer, sidebarWidth = '30%', alerts = [] } = props;
+  const { children, title, subtitle, actions, sidebar, footer, sidebarWidth = '30%', alerts = [], meta } = props;
 
   const { isMobile } = useBreakpoint();
+
+  useDocumentMeta(meta);
 
   return (
     <LayoutWrapper

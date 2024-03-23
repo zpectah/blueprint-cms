@@ -63,7 +63,12 @@ const Settings = () => {
   }, [panel]);
 
   return (
-    <ViewLayout title="Settings">
+    <ViewLayout
+      title="Settings"
+      meta={{
+        title: 'Settings',
+      }}
+    >
       <Box sx={{ width: '100%' }}>
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
           <Tabs value={value} onChange={changeHandler} aria-label="settings form tabs">

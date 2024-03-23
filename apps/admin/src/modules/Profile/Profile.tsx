@@ -5,7 +5,16 @@ import { ViewLayout } from '../../components';
 const Profile = () => {
   // const { t } = useTranslation();
 
-  return <ViewLayout title="Profile">...Profile view...</ViewLayout>;
+  return (
+    <ViewLayout
+      title="Profile"
+      meta={{
+        title: 'Profile',
+      }}
+    >
+      ...Profile view...
+    </ViewLayout>
+  );
 };
 
 export default Profile;

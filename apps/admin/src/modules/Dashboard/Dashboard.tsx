@@ -11,6 +11,9 @@ const Dashboard = () => {
     <ViewLayout
       title="Dashboard"
       subtitle="Page view subtitle"
+      meta={{
+        title: 'Dashboard',
+      }}
       alerts={[
         {
           key: 0,

@@ -4,7 +4,12 @@ import { Button, Typography, Stack } from '@mui/material';
 
 const Playground = () => {
   return (
-    <DialogLayout disableFooter>
+    <DialogLayout
+      meta={{
+        title: 'Playground',
+      }}
+      disableFooter
+    >
       <div>
         <div>
           <Typography variant="h1">Typography H1: [hero title, "super title"]</Typography>

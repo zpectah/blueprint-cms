@@ -3,7 +3,11 @@ import { DialogLayout } from '../../components';
 
 const Error = () => {
   return (
-    <DialogLayout>
+    <DialogLayout
+      meta={{
+        title: 'Error',
+      }}
+    >
       <div>...Error...</div>
     </DialogLayout>
   );

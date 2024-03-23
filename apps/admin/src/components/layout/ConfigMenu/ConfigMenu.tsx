@@ -14,7 +14,7 @@ const ConfigMenu = () => {
   const { mode, setMode } = useAppContext();
 
   const open = Boolean(anchorEl);
-  const idPrefix = 'ConfigMenu';
+  const idPrefix = 'header-config';
 
   const clickHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
