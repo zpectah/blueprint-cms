@@ -1,43 +1,33 @@
 import React, { Component, ReactNode, ErrorInfo } from 'react';
 
-class ErrorBoundary extends Component<
-  { children: ReactNode; errorRender?: (error: Error) => ReactNode },
-  { hasError: boolean; error: Error | undefined }
-> {
-  state = { hasError: false, error: undefined };
+interface Props {
+  children?: ReactNode;
+}
 
-  static egtDerivedStateFromError(error: Error) {
-    // TODO
-    // Create log ???
-    return { hasError: true, error };
+interface State {
+  hasError: boolean;
+}
+
+class ErrorBoundary extends Component<Props, State> {
+  public state: State = {
+    hasError: false,
+  };
+
+  public static getDerivedStateFromError(_: Error): State {
+    // Update state so the next render will show the fallback UI.
+    return { hasError: true };
   }
 
-  componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-    console.warn(error, errorInfo);
+  public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
+    console.error('Uncaught error:', error, errorInfo);
   }
 
   render() {
-    if (this.state.hasError && this.state.error) {
-      return this.props?.errorRender ? (
-        this.props.errorRender(this.state.error)
-      ) : (
-        <div
-          style={{
-            width: '100vw',
-            height: '100vh',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            background: 'white',
-            color: 'black',
-          }}
-        >
-          Error message
-        </div>
-      );
-    } else {
-      return this.props.children;
+    if (this.state.hasError) {
+      return <h1>Sorry.. there was an error</h1>;
     }
+
+    return this.props.children;
   }
 }
 

@@ -14,6 +14,7 @@ const BackgroundBase = styled('div')`
   display: flex;
   flex-grow: 1;
   z-index: -1;
+  opacity: 0.25;
 `;
 const Background0 = styled('div')`
   position: absolute;

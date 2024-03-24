@@ -25,7 +25,7 @@ const LoginForm = () => {
   };
 
   return (
-    <Card>
+    <Card variant="elevation" elevation={1}>
       <CardContent sx={{}}>
         <FormBlock
           boxProps={{

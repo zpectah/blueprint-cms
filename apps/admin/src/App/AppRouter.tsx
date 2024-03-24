@@ -1,7 +1,7 @@
 import React, { lazy } from 'react';
 import { RouterProvider, createBrowserRouter, Navigate } from 'react-router-dom';
 import { BASE_ROOT, PATH_ID_SUFFIX, PATH_PANEL_SUFFIX, ROUTES } from '../config';
-import { PageLayout } from '../components';
+import { PageLayout, PageLayoutPreloader, ErrorBoundary, RouterErrorBoundary } from '../components';
 
 import { Playground, Error, Login, LostPassword } from '../modules';
 
@@ -18,22 +18,27 @@ const AppRouter = () => {
     {
       path: ROUTES.error.path,
       element: <Error />,
+      errorElement: <RouterErrorBoundary />,
     },
     {
       path: ROUTES.playground.path,
       element: <Playground />,
+      errorElement: <RouterErrorBoundary />,
     },
     {
       path: ROUTES.login.path,
       element: <Login />,
+      errorElement: <RouterErrorBoundary />,
     },
     {
       path: ROUTES.lostPassword.path,
       element: <LostPassword />,
+      errorElement: <RouterErrorBoundary />,
     },
     {
       path: BASE_ROOT,
       element: <PageLayout />,
+      errorElement: <RouterErrorBoundary authorized />,
       children: [
         {
           // Redirect for empty path
@@ -96,7 +101,7 @@ const AppRouter = () => {
     },
   ]);
 
-  return <RouterProvider router={router} />;
+  return <RouterProvider fallbackElement={<PageLayoutPreloader />} router={router} />;
 };
 
 export default AppRouter;
