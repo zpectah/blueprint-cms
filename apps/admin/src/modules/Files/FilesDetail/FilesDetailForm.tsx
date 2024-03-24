@@ -4,20 +4,20 @@ import { Snackbar } from '@mui/material';
 import { FormResponseState } from '../../../types';
 import { formResponseStateKeys } from '../../../enums';
 import { Form, FormBlock, FormField, Input } from '../../../components';
-import { IUsersDetailForm } from '../types';
-import { USERS_DETAIL_FORM_ID } from '../constants';
-import { useUsersContext } from '../context';
-import { useUsersDetailForm } from '../hooks';
+import { IFilesDetailForm } from '../types';
+import { FILES_DETAIL_FORM_ID } from '../constants';
+import { useFilesContext } from '../context';
+import { useFilesDetailForm } from '../hooks';
 
-interface UsersDetailFormProps {
+interface PostsDetailFormProps {
   onSubmit?: (state: FormResponseState, message: string) => void;
 }
 
-const UsersDetailForm = ({ onSubmit }: UsersDetailFormProps) => {
-  const { detailData, responseSnack, setResponseSnack, setFormDirty } = useUsersContext();
-  const { control, handleSubmit, formState } = useUsersDetailForm(detailData);
+const PostsDetailForm = ({ onSubmit }: PostsDetailFormProps) => {
+  const { detailData, responseSnack, setResponseSnack, setFormDirty } = useFilesContext();
+  const { control, handleSubmit, formState } = useFilesDetailForm(detailData);
 
-  const submitHandler: SubmitHandler<IUsersDetailForm> = (data, event) => {
+  const submitHandler: SubmitHandler<IFilesDetailForm> = (data, event) => {
     // TODO #submit-handler
     console.log('submit', data);
     // TODO #validation
@@ -37,14 +37,14 @@ const UsersDetailForm = ({ onSubmit }: UsersDetailFormProps) => {
 
   return (
     <>
-      <Form id={USERS_DETAIL_FORM_ID} onSubmit={handleSubmit(submitHandler)}>
+      <Form id={FILES_DETAIL_FORM_ID} onSubmit={handleSubmit(submitHandler)}>
         <FormBlock>
-          <FormField fieldId="user_field" label="Some user field ...">
+          <FormField fieldId="posts_field" label="Some posts field ...">
             <Controller
               control={control}
               name="name"
               render={({ field, fieldState }) => (
-                <Input id="user_field" placeholder="Type your email" fullWidth {...field} />
+                <Input id="posts_field" placeholder="Type your email" fullWidth {...field} />
               )}
             />
           </FormField>
@@ -61,4 +61,4 @@ const UsersDetailForm = ({ onSubmit }: UsersDetailFormProps) => {
   );
 };
 
-export default UsersDetailForm;
+export default PostsDetailForm;
