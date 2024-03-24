@@ -1,23 +1,24 @@
-import React from 'react';
+import React, { lazy } from 'react';
 import { RouterProvider, createBrowserRouter, Navigate } from 'react-router-dom';
 import { BASE_ROOT, PATH_ID_SUFFIX, PATH_PANEL_SUFFIX, ROUTES } from '../config';
 import { PageLayout } from '../components';
-import {
-  Error,
-  Playground,
-  Login,
-  LostPassword,
-  Dashboard,
-  Posts,
-  Profile,
-  Settings,
-  Users,
-  Help,
-  Files,
-} from '../modules';
+
+import { Playground, Error, Login, LostPassword } from '../modules';
+
+const Dashboard = lazy(() => import('../modules/Dashboard/Dashboard'));
+const Posts = lazy(() => import('../modules/Posts/Posts'));
+const Profile = lazy(() => import('../modules/Profile/Profile'));
+const Settings = lazy(() => import('../modules/Settings/Settings'));
+const Users = lazy(() => import('../modules/Users/Users'));
+const Help = lazy(() => import('../modules/Help/Help'));
+const Files = lazy(() => import('../modules/Files/Files'));
 
 const AppRouter = () => {
   const router = createBrowserRouter([
+    {
+      path: ROUTES.error.path,
+      element: <Error />,
+    },
     {
       path: ROUTES.playground.path,
       element: <Playground />,
@@ -92,10 +93,6 @@ const AppRouter = () => {
           ],
         },
       ],
-    },
-    {
-      path: ROUTES.error.path,
-      element: <Error />,
     },
   ]);
 

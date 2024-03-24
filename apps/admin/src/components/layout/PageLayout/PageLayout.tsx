@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { styled, Box, Container } from '@mui/material';
 import { PAGE_LAYOUT_NOTIFICATION_LIST_ID } from '../../../constants';
@@ -9,6 +9,7 @@ import { Header } from '../Header';
 import { Footer } from '../Footer';
 import { Sidebar } from '../Sidebar';
 import { NotificationsList } from '../NotificationsList';
+import PageLayoutPreloader from './PageLayoutPreloader';
 
 const WrapperBase = styled(Box)({
   width: '100%',
@@ -73,7 +74,9 @@ const PageLayout = () => {
           <ContentContainer>
             <ContentScrollable>
               <Content>
-                <Outlet />
+                <Suspense fallback={<PageLayoutPreloader />}>
+                  <Outlet />
+                </Suspense>
                 <Footer />
               </Content>
             </ContentScrollable>

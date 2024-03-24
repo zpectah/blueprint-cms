@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { DialogLayout } from '../../components';
 import { Button, Typography, Stack } from '@mui/material';
 
