@@ -2,9 +2,7 @@ import React, { lazy } from 'react';
 import { RouterProvider, createBrowserRouter, Navigate } from 'react-router-dom';
 import { BASE_ROOT, PATH_ID_SUFFIX, PATH_PANEL_SUFFIX, ROUTES } from '../config';
 import { PageLayout, PageLayoutPreloader, RouterErrorBoundary } from '../components';
-
 import { Playground, Error, Login, LostPassword } from '../modules';
-
 const Dashboard = lazy(() => import('../modules/Dashboard/Dashboard'));
 const Posts = lazy(() => import('../modules/Posts/Posts'));
 const Profile = lazy(() => import('../modules/Profile/Profile'));

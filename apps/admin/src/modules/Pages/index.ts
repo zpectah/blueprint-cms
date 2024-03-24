@@ -1,1 +1,3 @@
-export { default as Pages } from './Pages';
+// We want export only root of module
+// We are exporting this via lazy
+// export { default as Pages } from './Pages';

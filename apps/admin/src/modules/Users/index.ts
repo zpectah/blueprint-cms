@@ -1,3 +1,3 @@
 // We want export only root of module
-
-export { default as Users } from './Users';
+// We are exporting this via lazy
+// export { default as Users } from './Users';
