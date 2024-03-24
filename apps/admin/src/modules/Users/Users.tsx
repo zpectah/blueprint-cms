@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Button } from '@mui/material';
 import { ROUTES } from '../../config';
 import { NEW_DETAIL_ID } from '../../constants';
@@ -10,14 +11,16 @@ import { UsersList } from './UsersList';
 import { UsersDetail } from './UsersDetail';
 
 const Users = () => {
-  const { ...providerValue } = useUsersContextValue();
+  const { t } = useTranslation(['common', 'users']);
+  const providerValue = useUsersContextValue();
 
   return (
     <UsersContextProvider value={providerValue}>
       <ViewLayout
-        title="Users"
+        title={t('users:page.title')}
+        subtitle={t('users:page.subtitle')}
         meta={{
-          title: 'Users',
+          title: t('users:page.meta.title'),
         }}
         actions={
           <Button
@@ -27,7 +30,7 @@ const Users = () => {
             color="primary"
             size="large"
           >
-            New user
+            {t('label.users_new')}
           </Button>
         }
       >

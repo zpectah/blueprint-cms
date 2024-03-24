@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Button } from '@mui/material';
 import { ROUTES } from '../../config';
 import { NEW_DETAIL_ID } from '../../constants';
@@ -10,14 +11,16 @@ import { MenusList } from './MenusList';
 import { MenusDetail } from './MenusDetail';
 
 const Menus = () => {
-  const { ...providerValue } = useMenusContextValue();
+  const { t } = useTranslation(['common', 'menus']);
+  const providerValue = useMenusContextValue();
 
   return (
     <MenusContextProvider value={providerValue}>
       <ViewLayout
-        title="Menus"
+        title={t('menus:page.title')}
+        subtitle={t('menus:page.subtitle')}
         meta={{
-          title: 'Menus',
+          title: t('menus:page.meta.title'),
         }}
         actions={
           <Button
@@ -27,7 +30,7 @@ const Menus = () => {
             color="primary"
             size="large"
           >
-            New menu
+            {t('label.menus_new')}
           </Button>
         }
       >

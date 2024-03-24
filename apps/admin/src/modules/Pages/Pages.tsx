@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Button } from '@mui/material';
 import { ROUTES } from '../../config';
 import { NEW_DETAIL_ID } from '../../constants';
@@ -10,14 +11,16 @@ import { PagesList } from './PagesList';
 import { PagesDetail } from './PagesDetail';
 
 const Pages = () => {
-  const { ...providerValue } = usePagesContextValue();
+  const { t } = useTranslation(['common', 'pages']);
+  const providerValue = usePagesContextValue();
 
   return (
     <PagesContextProvider value={providerValue}>
       <ViewLayout
-        title="Pages"
+        title={t('pages:page.title')}
+        subtitle={t('pages:page.subtitle')}
         meta={{
-          title: 'Pages',
+          title: t('pages:page.meta.title'),
         }}
         actions={
           <Button
@@ -27,7 +30,7 @@ const Pages = () => {
             color="primary"
             size="large"
           >
-            New page
+            {t('label.pages_new')}
           </Button>
         }
       >

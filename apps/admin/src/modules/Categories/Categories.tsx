@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Button } from '@mui/material';
 import { ROUTES } from '../../config';
 import { NEW_DETAIL_ID } from '../../constants';
@@ -10,14 +11,16 @@ import { CategoriesList } from './CategoriesList';
 import { CategoriesDetail } from './CategoriesDetail';
 
 const Categories = () => {
-  const { ...providerValue } = useCategoriesContextValue();
+  const { t } = useTranslation(['common', 'categories']);
+  const providerValue = useCategoriesContextValue();
 
   return (
     <CategoriesContextProvider value={providerValue}>
       <ViewLayout
-        title="Categories"
+        title={t('categories:page.title')}
+        subtitle={t('categories:page.subtitle')}
         meta={{
-          title: 'Categories',
+          title: t('categories:page.meta.title'),
         }}
         actions={
           <Button
@@ -27,7 +30,7 @@ const Categories = () => {
             color="primary"
             size="large"
           >
-            New category
+            {t('label.categories_new')}
           </Button>
         }
       >

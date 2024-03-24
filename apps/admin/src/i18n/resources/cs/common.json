@@ -1,4 +1,35 @@
 {
   "button.open": "Otevřít",
-  "button.close": "Zavřít"
+  "button.close": "Zavřít",
+
+  "navigation.primary.dashboard": "Dashboard",
+  "navigation.primary.settings": "Nastavení",
+  "navigation.primary.users": "Uživatelé",
+  "navigation.primary.posts": "Články",
+  "navigation.primary.categories": "Kategorie",
+  "navigation.primary.tags": "Tagy",
+  "navigation.primary.pages": "Stránky",
+  "navigation.primary.translations": "Překlady",
+  "navigation.primary.files": "Soubory",
+  "navigation.primary.menus": "Menu",
+  "navigation.primary.messages": "Zprávy",
+
+  "header.user.profile.label": "Můj profil",
+  "header.user.logout.label": "Odhlásit se",
+  "header.config.language.label": "Jazyk",
+  "header.config.theme.label": "Téma",
+  "header.spotlight.toggle.label": "Spotlight",
+
+  "label.categories_new": "Nová kategorie",
+  "label.files_new": "Nový soubor",
+  "label.menus_new": "Nové menu",
+  "label.messages_new": "Nová zpráva",
+  "label.pages_new": "Nová stránka",
+  "label.posts_new": "Nový článek",
+  "label.tags_new": "Nový tag",
+  "label.translations_new": "Nový překlad",
+  "label.users_new": "Nový uživatel",
+
+  "form.label.email": "E-mail",
+  "form.label.password": "Heslo"
 }

@@ -15,67 +15,67 @@ import { MenuItemList } from '../types';
 export const PRIMARY_MENU: MenuItemList = [
   {
     key: 1,
-    label: 'Dashboard', // TODO #translation-key
+    label: 'navigation.primary.dashboard',
     path: ROUTES.dashboard.path,
     icon: HomeIcon,
   },
   {
     key: 2,
-    label: 'Settings', // TODO #translation-key
+    label: 'navigation.primary.settings',
     path: ROUTES.settings.path,
     icon: SettingsIcon,
   },
   {
     key: 3,
-    label: 'Users', // TODO #translation-key
+    label: 'navigation.primary.users',
     path: ROUTES.users.path,
     icon: GroupIcon,
   },
   {
     key: 4,
-    label: 'Posts', // TODO #translation-key
+    label: 'navigation.primary.posts',
     path: ROUTES.posts.path,
     icon: ArticleIcon,
   },
   {
     key: 5,
-    label: 'Categories', // TODO #translation-key
+    label: 'navigation.primary.categories',
     path: ROUTES.categories.path,
     icon: CategoryIcon,
   },
   {
     key: 6,
-    label: 'Tags', // TODO #translation-key
+    label: 'navigation.primary.tags',
     path: ROUTES.tags.path,
     icon: BookmarkIcon,
   },
   {
     key: 7,
-    label: 'Pages', // TODO #translation-key
+    label: 'navigation.primary.pages',
     path: ROUTES.pages.path,
     icon: AutoStoriesIcon,
   },
   {
     key: 8,
-    label: 'Translations', // TODO #translation-key
+    label: 'navigation.primary.translations',
     path: ROUTES.translations.path,
     icon: LanguageIcon,
   },
   {
     key: 9,
-    label: 'Files', // TODO #translation-key
+    label: 'navigation.primary.files',
     path: ROUTES.files.path,
     icon: AttachFileIcon,
   },
   {
     key: 10,
-    label: 'Menus', // TODO #translation-key
+    label: 'navigation.primary.menus',
     path: ROUTES.menus.path,
     icon: MenuIcon,
   },
   {
     key: 11,
-    label: 'Messages', // TODO #translation-key
+    label: 'navigation.primary.messages',
     path: ROUTES.messages.path,
     icon: MessageIcon,
   },

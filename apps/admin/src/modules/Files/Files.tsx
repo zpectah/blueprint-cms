@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Button } from '@mui/material';
 import { ROUTES } from '../../config';
 import { NEW_DETAIL_ID } from '../../constants';
@@ -10,14 +11,16 @@ import { FilesList } from './FilesList';
 import { FilesDetail } from './FilesDetail';
 
 const Files = () => {
-  const { ...providerValue } = useFilesContextValue();
+  const { t } = useTranslation(['common', 'files']);
+  const providerValue = useFilesContextValue();
 
   return (
     <FilesContextProvider value={providerValue}>
       <ViewLayout
-        title="Files"
+        title={t('files:page.title')}
+        subtitle={t('files:page.subtitle')}
         meta={{
-          title: 'Files',
+          title: t('files:page.meta.title'),
         }}
         actions={
           <Button
@@ -27,7 +30,7 @@ const Files = () => {
             color="primary"
             size="large"
           >
-            New file
+            {t('label.files_new')}
           </Button>
         }
       >

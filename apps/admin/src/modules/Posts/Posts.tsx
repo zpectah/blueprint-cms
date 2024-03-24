@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Button } from '@mui/material';
 import { ROUTES } from '../../config';
 import { NEW_DETAIL_ID } from '../../constants';
@@ -10,14 +11,16 @@ import { PostsList } from './PostsList';
 import { PostsDetail } from './PostsDetail';
 
 const Posts = () => {
-  const { ...providerValue } = usePostsContextValue();
+  const { t } = useTranslation(['common', 'posts']);
+  const providerValue = usePostsContextValue();
 
   return (
     <PostsContextProvider value={providerValue}>
       <ViewLayout
-        title="Posts"
+        title={t('posts:page.title')}
+        subtitle={t('posts:page.subtitle')}
         meta={{
-          title: 'Posts',
+          title: t('posts:page.meta.title'),
         }}
         actions={
           <Button
@@ -27,7 +30,7 @@ const Posts = () => {
             color="primary"
             size="large"
           >
-            New Post
+            {t('label.posts_new')}
           </Button>
         }
       >

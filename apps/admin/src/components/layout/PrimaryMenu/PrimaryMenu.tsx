@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { MenuList, MenuItem, ListItemText, ListItemIcon } from '@mui/material';
 import { PRIMARY_MENU } from '../../../constants';
 import { useBreakpoint } from '../../../hooks';
@@ -10,6 +11,7 @@ export interface PrimaryMenuProps {
 }
 
 const PrimaryMenu = ({ onMobileMenuItemClick, onDesktopMenuItemClick }: PrimaryMenuProps) => {
+  const { t } = useTranslation();
   const { pathname } = useLocation();
   const { isMobile } = useBreakpoint();
 
@@ -38,7 +40,7 @@ const PrimaryMenu = ({ onMobileMenuItemClick, onDesktopMenuItemClick }: PrimaryM
               <Icon />
             </ListItemIcon>
           )}
-          <ListItemText {...listItemTextProps}>{label}</ListItemText>
+          <ListItemText {...listItemTextProps}>{t(label)}</ListItemText>
         </MenuItem>
       ))}
     </MenuList>

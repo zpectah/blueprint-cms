@@ -1,4 +1,35 @@
 {
   "button.open": "Open",
-  "button.close": "Close"
+  "button.close": "Close",
+
+  "navigation.primary.dashboard": "Dashboard",
+  "navigation.primary.settings": "Settings",
+  "navigation.primary.users": "Users",
+  "navigation.primary.posts": "Posts",
+  "navigation.primary.categories": "Categories",
+  "navigation.primary.tags": "Tags",
+  "navigation.primary.pages": "Pages",
+  "navigation.primary.translations": "Translations",
+  "navigation.primary.files": "Files",
+  "navigation.primary.menus": "Menus",
+  "navigation.primary.messages": "Messages",
+
+  "header.user.profile.label": "My profile",
+  "header.user.logout.label": "Logout",
+  "header.config.language.label": "Language",
+  "header.config.theme.label": "Theme",
+  "header.spotlight.toggle.label": "Spotlight",
+
+  "label.categories_new": "New category",
+  "label.files_new": "New file",
+  "label.menus_new": "New menu",
+  "label.messages_new": "New message",
+  "label.pages_new": "New page",
+  "label.posts_new": "New post",
+  "label.tags_new": "New tag",
+  "label.translations_new": "New translation",
+  "label.users_new": "New user",
+
+  "form.label.email": "E-mail",
+  "form.label.password": "Password"
 }

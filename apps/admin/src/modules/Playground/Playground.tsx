@@ -1,8 +1,11 @@
 import React, { Suspense } from 'react';
+// import { useTranslation } from 'react-i18next';
 import { DialogLayout } from '../../components';
 import { Button, Typography, Stack } from '@mui/material';
 
 const Playground = () => {
+  // const { t } = useTranslation();
+
   return (
     <DialogLayout
       meta={{

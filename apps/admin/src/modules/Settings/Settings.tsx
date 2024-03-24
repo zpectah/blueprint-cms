@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Tabs, Tab, Typography, Box } from '@mui/material';
 import { WithChildren } from '@blueprint/types';
 import { ROUTES } from '../../config';
@@ -45,6 +46,8 @@ function a11yProps(index: string) {
 }
 
 const Settings = () => {
+  const { t } = useTranslation(['common', 'settings']);
+
   const [value, setValue] = useState<string>('global');
 
   const { panel } = useParams();
@@ -64,9 +67,10 @@ const Settings = () => {
 
   return (
     <ViewLayout
-      title="Settings"
+      title={t('settings:page.title')}
+      subtitle={t('settings:page.subtitle')}
       meta={{
-        title: 'Settings',
+        title: t('settings:page.meta.title'),
       }}
     >
       <Box sx={{ width: '100%' }}>

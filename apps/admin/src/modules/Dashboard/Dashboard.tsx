@@ -6,16 +6,15 @@ import { useAppNotificationsContext } from '../../contexts';
 import { ViewLayout } from '../../components';
 
 const Dashboard = () => {
-  const { t } = useTranslation();
-
+  const { t } = useTranslation(['common', 'dashboard']);
   const { notifications, addNotification } = useAppNotificationsContext();
 
   return (
     <ViewLayout
-      title="Dashboard"
-      subtitle="Page view subtitle"
+      title={t('dashboard:page.title')}
+      subtitle={t('dashboard:page.subtitle')}
       meta={{
-        title: 'Dashboard',
+        title: t('dashboard:page.meta.title'),
       }}
       // alerts={[
       //   {
