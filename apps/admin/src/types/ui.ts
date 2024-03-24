@@ -1,4 +1,6 @@
-import { formResponseStateKeys } from '../enums';
+import { themeModeKeys, formResponseStateKeys } from '../enums';
+
+export type ThemeMode = keyof typeof themeModeKeys;
 
 export type FormResponseState = keyof typeof formResponseStateKeys;
 

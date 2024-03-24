@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import { DrawerProps } from '@mui/material';
-import { WithChildren } from '../../types';
+import { WithChildren } from '@blueprint/types';
 
 export interface DetailDrawerProps extends WithChildren {
   id?: string;

@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import { styled, Box, Container, ContainerProps } from '@mui/material';
-import { WithChildren } from '../../../types';
+import { WithChildren } from '@blueprint/types';
 import { useDocumentMeta } from '../../../hooks';
 import { CONTAINER_Y_OFFSET } from '../../../styles';
 import { Footer } from '../Footer';

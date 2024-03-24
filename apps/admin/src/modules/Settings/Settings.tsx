@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Tabs, Tab, Typography, Box } from '@mui/material';
-import { ViewLayout } from '../../components';
+import { WithChildren } from '@blueprint/types';
 import { ROUTES } from '../../config';
-import { WithChildren } from '../../types';
+import { ViewLayout } from '../../components';
 
 interface TabPanelProps extends WithChildren {
   title?: string;

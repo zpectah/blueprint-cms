@@ -37,4 +37,40 @@ export const PRIMARY_MENU: MenuItemList = [
     path: ROUTES.settings.path,
     icon: SettingsIcon,
   },
+  {
+    key: 6,
+    label: 'Categories', // TODO #translation-key
+    path: ROUTES.categories.path,
+    icon: SettingsIcon,
+  },
+  {
+    key: 7,
+    label: 'Menus', // TODO #translation-key
+    path: ROUTES.menus.path,
+    icon: SettingsIcon,
+  },
+  {
+    key: 8,
+    label: 'Messages', // TODO #translation-key
+    path: ROUTES.messages.path,
+    icon: SettingsIcon,
+  },
+  {
+    key: 9,
+    label: 'Pages', // TODO #translation-key
+    path: ROUTES.pages.path,
+    icon: SettingsIcon,
+  },
+  {
+    key: 10,
+    label: 'Tags', // TODO #translation-key
+    path: ROUTES.tags.path,
+    icon: SettingsIcon,
+  },
+  {
+    key: 11,
+    label: 'Translations', // TODO #translation-key
+    path: ROUTES.translations.path,
+    icon: SettingsIcon,
+  },
 ];

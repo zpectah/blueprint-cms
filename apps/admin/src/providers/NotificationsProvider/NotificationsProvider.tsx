@@ -1,5 +1,5 @@
 import React from 'react';
-import { WithChildren } from '../../types';
+import { WithChildren } from '@blueprint/types';
 import { AppNotificationsContextProvider } from '../../contexts';
 import { useNotificationsProviderValue } from './useNotificationsProviderValue';
 

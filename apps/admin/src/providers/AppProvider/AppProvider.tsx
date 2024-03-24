@@ -1,7 +1,7 @@
 import React from 'react';
 import { deepmerge } from '@mui/utils';
 import { ThemeProvider, CssBaseline, createTheme } from '@mui/material';
-import { WithChildren } from '../../types';
+import { WithChildren } from '@blueprint/types';
 import { AppContextProvider } from '../../contexts';
 import { getDesignTokens } from '../../styles';
 import { useAppProviderValue } from './useAppProviderValue';

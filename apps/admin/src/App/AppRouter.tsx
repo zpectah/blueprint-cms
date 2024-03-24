@@ -12,6 +12,12 @@ const Settings = lazy(() => import('../modules/Settings/Settings'));
 const Users = lazy(() => import('../modules/Users/Users'));
 const Help = lazy(() => import('../modules/Help/Help'));
 const Files = lazy(() => import('../modules/Files/Files'));
+const Categories = lazy(() => import('../modules/Categories/Categories'));
+const Menus = lazy(() => import('../modules/Menus/Menus'));
+const Messages = lazy(() => import('../modules/Messages/Messages'));
+const Pages = lazy(() => import('../modules/Pages/Pages'));
+const Tags = lazy(() => import('../modules/Tags/Tags'));
+const Translations = lazy(() => import('../modules/Translations/Translations'));
 
 const AppRouter = () => {
   const router = createBrowserRouter([
@@ -94,6 +100,66 @@ const AppRouter = () => {
             {
               path: `${ROUTES.files.path}${PATH_ID_SUFFIX}`,
               element: <Files />,
+            },
+          ],
+        },
+        {
+          path: ROUTES.categories.path,
+          element: <Categories />,
+          children: [
+            {
+              path: `${ROUTES.categories.path}${PATH_ID_SUFFIX}`,
+              element: <Categories />,
+            },
+          ],
+        },
+        {
+          path: ROUTES.menus.path,
+          element: <Menus />,
+          children: [
+            {
+              path: `${ROUTES.menus.path}${PATH_ID_SUFFIX}`,
+              element: <Menus />,
+            },
+          ],
+        },
+        {
+          path: ROUTES.messages.path,
+          element: <Messages />,
+          children: [
+            {
+              path: `${ROUTES.messages.path}${PATH_ID_SUFFIX}`,
+              element: <Messages />,
+            },
+          ],
+        },
+        {
+          path: ROUTES.pages.path,
+          element: <Pages />,
+          children: [
+            {
+              path: `${ROUTES.pages.path}${PATH_ID_SUFFIX}`,
+              element: <Pages />,
+            },
+          ],
+        },
+        {
+          path: ROUTES.tags.path,
+          element: <Tags />,
+          children: [
+            {
+              path: `${ROUTES.tags.path}${PATH_ID_SUFFIX}`,
+              element: <Tags />,
+            },
+          ],
+        },
+        {
+          path: ROUTES.translations.path,
+          element: <Translations />,
+          children: [
+            {
+              path: `${ROUTES.translations.path}${PATH_ID_SUFFIX}`,
+              element: <Translations />,
             },
           ],
         },

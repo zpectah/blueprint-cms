@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import { styled, Box, Typography, BoxProps } from '@mui/material';
-import { WithChildren } from '../../../types';
+import { WithChildren } from '@blueprint/types';
 import { SPACING_BASE } from '../../../styles';
 
 const BlockWrapper = styled(Box)({

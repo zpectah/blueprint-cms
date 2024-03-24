@@ -1,6 +1,7 @@
 import { Theme } from '@mui/material';
+import { DeepPartial } from '@blueprint/types';
 import { PALETTE } from './constants';
-import { DeepPartial, ThemeMode } from '../types';
+import { ThemeMode } from '../types';
 import { COLOR_PRIMARY, COLOR_SECONDARY, LAYOUT_SIDEBAR_ID, PAGE_LAYOUT_NOTIFICATION_LIST_ID } from '../constants';
 
 export const getDesignTokens = (mode: ThemeMode): DeepPartial<Theme> => {

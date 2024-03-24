@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import { styled, Box, Typography, Alert, AlertTitle, AlertProps } from '@mui/material';
-import { WithChildren } from '../../../types';
+import { WithChildren } from '@blueprint/types';
 import { SPACING_BASE } from '../../../styles';
 import { useBreakpoint, useDocumentMeta } from '../../../hooks';
 

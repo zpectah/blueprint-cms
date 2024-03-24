@@ -1,7 +1,8 @@
 import { ReactNode } from 'react';
 import { BoxProps } from '@mui/material';
-import { WithChildren } from '../../../types';
+import { WithChildren } from '@blueprint/types';
 
+// TODO #keys
 export type FormFieldMessageSeverity = 'default' | 'success' | 'warning' | 'error';
 
 export interface FormFieldMessageProps extends WithChildren {

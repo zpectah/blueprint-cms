@@ -44,4 +44,22 @@ export const ROUTES = {
   files: {
     path: '/files',
   },
+  categories: {
+    path: '/categories',
+  },
+  menus: {
+    path: '/menus',
+  },
+  messages: {
+    path: '/messages',
+  },
+  pages: {
+    path: '/pages',
+  },
+  tags: {
+    path: '/tags',
+  },
+  translations: {
+    path: '/translations',
+  },
 };
