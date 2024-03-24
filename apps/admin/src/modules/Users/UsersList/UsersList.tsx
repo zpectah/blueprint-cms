@@ -1,7 +1,7 @@
 import React from 'react';
 import { UsersItem } from '@blueprint/types';
-import { DataList } from '../../components';
-import { useUsers } from '../../model';
+import { DataList } from '../../../components';
+import { useUsers } from '../../../model';
 
 const UsersList = () => {
   const { users } = useUsers();

@@ -1,10 +1,10 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { Button, Stack } from '@mui/material';
-import { ROUTES } from '../../config';
-import { SPACING_BASE } from '../../styles';
-import { DetailDrawer, CheckButton } from '../../components';
-import { useUsersDetail } from '../../model';
+import { ROUTES } from '../../../config';
+import { SPACING_BASE } from '../../../styles';
+import { DetailDrawer, CheckButton } from '../../../components';
+import { useUsersDetail } from '../../../model';
 
 const FilesDetail = () => {
   const { id } = useParams();

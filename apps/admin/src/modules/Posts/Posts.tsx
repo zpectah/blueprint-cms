@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { Button } from '@mui/material';
 import { ROUTES } from '../../config';
 import { ViewLayout } from '../../components';
-import PostsList from './PostsList';
-import PostsDetail from './PostsDetail';
+import { PostsList } from './PostsList';
+import { PostsDetail } from './PostsDetail';
 
 const Posts = () => {
   return (

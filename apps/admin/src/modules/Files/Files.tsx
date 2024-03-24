@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { Button } from '@mui/material';
 import { ROUTES } from '../../config';
 import { ViewLayout } from '../../components';
-import FilesList from './FilesList';
-import FilesDetail from './FilesDetail';
+import { FilesList } from './FilesList';
+import { FilesDetail } from './FilesDetail';
 
 const Files = () => {
   return (

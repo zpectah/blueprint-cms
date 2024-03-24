@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Controller, SubmitHandler } from 'react-hook-form';
 import { Form, FormBlock, FormField, Input } from '../../../components';
-import { IUsersDetailForm } from './types';
-import { useUsersDetailForm } from './useLoginForm';
+import { IUsersDetailForm } from '../types';
+import { useUsersDetailForm } from '../hooks';
 import { Snackbar } from '@mui/material';
 
 interface UsersDetailFormProps {

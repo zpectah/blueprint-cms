@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { Button } from '@mui/material';
 import { ROUTES } from '../../config';
 import { ViewLayout } from '../../components';
-import UsersList from './UsersList';
-import UsersDetail from './UsersDetail';
+import { UsersList } from './UsersList';
+import { UsersDetail } from './UsersDetail';
 
 const Users = () => {
   return (
