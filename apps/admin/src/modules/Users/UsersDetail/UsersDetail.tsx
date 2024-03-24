@@ -1,29 +1,28 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Button, Stack } from '@mui/material';
 import { ROUTES } from '../../../config';
 import { SPACING_BASE } from '../../../styles';
 import { DetailDrawer, CheckButton } from '../../../components';
 import { useUsersDetail } from '../../../model';
-import { IUsersDetailForm } from '../types';
 import { USERS_DETAIL_FORM_DEFAULTS, USERS_DETAIL_FORM_NEW } from '../constants';
+import { useUsersContext } from '../context';
 import UsersDetailForm from './UsersDetailForm';
 
 const UsersDetail = () => {
-  const [formData, setFormData] = useState<IUsersDetailForm>(USERS_DETAIL_FORM_DEFAULTS);
-
   const { id } = useParams();
   const { detail } = useUsersDetail(id);
+  const { detailData, setDetailData } = useUsersContext();
 
   const formId = 'user-detail-form';
 
   useEffect(() => {
     if (id === 'new') {
-      setFormData(USERS_DETAIL_FORM_NEW);
+      setDetailData(USERS_DETAIL_FORM_NEW);
     } else {
       // TODO
       // Handle form data on load
-      setFormData(USERS_DETAIL_FORM_DEFAULTS);
+      setDetailData(USERS_DETAIL_FORM_DEFAULTS);
     }
   }, [id]);
 
@@ -50,7 +49,7 @@ const UsersDetail = () => {
       <>
         ...Users Detail Form...#{id} ... {detail?.id}
         <br />
-        <UsersDetailForm formId={formId} formData={formData} />
+        <UsersDetailForm formId={formId} formData={detailData} />
       </>
     </DetailDrawer>
   );

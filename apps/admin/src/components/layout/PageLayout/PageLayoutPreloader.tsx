@@ -18,12 +18,18 @@ const PreloaderContent = styled(Box)({
   gap: SPACING_BASE,
 });
 
-const PageLayoutPreloader = () => {
+interface PageLayoutPreloaderProps {
+  router?: boolean;
+}
+
+const PageLayoutPreloader = ({ router }: PageLayoutPreloaderProps) => {
   return (
     <PreloaderWrapper>
       <PreloaderContent>
         <CircularProgress />
-        <Typography variant="subtitle2">Preparing component, please wait</Typography>
+        <Typography variant="subtitle2">
+          {router ? 'Preparing view, please wait' : 'Preparing component, please wait'}
+        </Typography>
       </PreloaderContent>
     </PreloaderWrapper>
   );
