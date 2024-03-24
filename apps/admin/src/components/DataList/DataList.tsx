@@ -14,6 +14,12 @@ const DataList = <T extends Item>({ items, model }: DataListProps<T>) => {
     posts: ROUTES.posts.path,
     users: ROUTES.users.path,
     files: ROUTES.files.path,
+    categories: ROUTES.categories.path,
+    menus: ROUTES.menus.path,
+    messages: ROUTES.messages.path,
+    pages: ROUTES.pages.path,
+    tags: ROUTES.tags.path,
+    translations: ROUTES.translations.path,
   };
 
   const detailClickHandler = (id: string) => {

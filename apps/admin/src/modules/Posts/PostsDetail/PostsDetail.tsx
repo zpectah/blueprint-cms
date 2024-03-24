@@ -3,8 +3,9 @@ import { useParams } from 'react-router-dom';
 import { Button, Stack, TextField } from '@mui/material';
 import { ROUTES } from '../../../config';
 import { SPACING_BASE } from '../../../styles';
-import { DetailDrawer, Form, FormBlock, FormField, FormFieldset, CheckButton } from '../../../components';
 import { usePostsDetail } from '../../../model';
+import { NEW_DETAIL_ID } from '../../../constants';
+import { DetailDrawer, Form, FormBlock, FormField, FormFieldset, CheckButton } from '../../../components';
 import { POSTS_DETAIL_FORM_DEFAULTS, POSTS_DETAIL_FORM_NEW } from '../constants';
 import { usePostsContext } from '../context';
 import PostsDetailForm from './PostsDetailForm';
@@ -15,7 +16,7 @@ const PostsDetail = () => {
   const { setDetailData } = usePostsContext();
 
   useEffect(() => {
-    if (id === 'new') {
+    if (id === NEW_DETAIL_ID) {
       setDetailData(Object.assign(POSTS_DETAIL_FORM_NEW));
     } else {
       // TODO

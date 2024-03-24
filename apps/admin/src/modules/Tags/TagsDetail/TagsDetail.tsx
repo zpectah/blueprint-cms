@@ -3,8 +3,9 @@ import { useParams } from 'react-router-dom';
 import { Button, Stack } from '@mui/material';
 import { ROUTES } from '../../../config';
 import { SPACING_BASE } from '../../../styles';
-import { DetailDrawer, CheckButton } from '../../../components';
 import { useTagsDetail } from '../../../model';
+import { NEW_DETAIL_ID } from '../../../constants';
+import { DetailDrawer, CheckButton } from '../../../components';
 import { TAGS_DETAIL_FORM_DEFAULTS, TAGS_DETAIL_FORM_NEW, TAGS_DETAIL_FORM_ID } from '../constants';
 import { useTagsContext } from '../context';
 import TagsDetailForm from './TagsDetailForm';
@@ -15,7 +16,7 @@ const TagsDetail = () => {
   const { setDetailData } = useTagsContext();
 
   useEffect(() => {
-    if (id === 'new') {
+    if (id === NEW_DETAIL_ID) {
       setDetailData(Object.assign(TAGS_DETAIL_FORM_NEW));
     } else {
       // TODO

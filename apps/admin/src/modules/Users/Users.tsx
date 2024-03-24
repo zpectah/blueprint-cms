@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@mui/material';
 import { ROUTES } from '../../config';
+import { NEW_DETAIL_ID } from '../../constants';
 import { ViewLayout } from '../../components';
 import { UsersContextProvider } from './context';
 import { useUsersContextValue } from './hooks';
@@ -19,7 +20,13 @@ const Users = () => {
           title: 'Users',
         }}
         actions={
-          <Button component={Link} to={`${ROUTES.users.path}/new`} variant="contained" color="primary">
+          <Button
+            component={Link}
+            to={`${ROUTES.users.path}/${NEW_DETAIL_ID}`}
+            variant="contained"
+            color="primary"
+            size="large"
+          >
             New user
           </Button>
         }

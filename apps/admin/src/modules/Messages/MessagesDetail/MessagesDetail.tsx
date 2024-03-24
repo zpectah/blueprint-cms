@@ -3,8 +3,9 @@ import { useParams } from 'react-router-dom';
 import { Button, Stack } from '@mui/material';
 import { ROUTES } from '../../../config';
 import { SPACING_BASE } from '../../../styles';
-import { DetailDrawer, CheckButton } from '../../../components';
 import { useMessagesDetail } from '../../../model';
+import { NEW_DETAIL_ID } from '../../../constants';
+import { DetailDrawer, CheckButton } from '../../../components';
 import { MESSAGES_DETAIL_FORM_DEFAULTS, MESSAGES_DETAIL_FORM_NEW, MESSAGES_DETAIL_FORM_ID } from '../constants';
 import { useMessagesContext } from '../context';
 import MessagesDetailForm from './MessagesDetailForm';
@@ -15,7 +16,7 @@ const MessagesDetail = () => {
   const { setDetailData } = useMessagesContext();
 
   useEffect(() => {
-    if (id === 'new') {
+    if (id === NEW_DETAIL_ID) {
       setDetailData(Object.assign(MESSAGES_DETAIL_FORM_NEW));
     } else {
       // TODO

@@ -3,8 +3,9 @@ import { useParams } from 'react-router-dom';
 import { Button, Stack } from '@mui/material';
 import { ROUTES } from '../../../config';
 import { SPACING_BASE } from '../../../styles';
-import { DetailDrawer, CheckButton } from '../../../components';
 import { useTranslationsDetail } from '../../../model';
+import { NEW_DETAIL_ID } from '../../../constants';
+import { DetailDrawer, CheckButton } from '../../../components';
 import {
   TRANSLATIONS_DETAIL_FORM_DEFAULTS,
   TRANSLATIONS_DETAIL_FORM_NEW,
@@ -19,7 +20,7 @@ const TranslationsDetail = () => {
   const { setDetailData } = useTranslationsContext();
 
   useEffect(() => {
-    if (id === 'new') {
+    if (id === NEW_DETAIL_ID) {
       setDetailData(Object.assign(TRANSLATIONS_DETAIL_FORM_NEW));
     } else {
       // TODO

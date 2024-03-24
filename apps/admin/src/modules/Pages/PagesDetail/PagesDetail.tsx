@@ -3,8 +3,9 @@ import { useParams } from 'react-router-dom';
 import { Button, Stack } from '@mui/material';
 import { ROUTES } from '../../../config';
 import { SPACING_BASE } from '../../../styles';
-import { DetailDrawer, CheckButton } from '../../../components';
 import { usePagesDetail } from '../../../model';
+import { NEW_DETAIL_ID } from '../../../constants';
+import { DetailDrawer, CheckButton } from '../../../components';
 import { PAGES_DETAIL_FORM_DEFAULTS, PAGES_DETAIL_FORM_NEW, PAGES_DETAIL_FORM_ID } from '../constants';
 import { usePagesContext } from '../context';
 import PagesDetailForm from './PagesDetailForm';
@@ -15,7 +16,7 @@ const PagesDetail = () => {
   const { setDetailData } = usePagesContext();
 
   useEffect(() => {
-    if (id === 'new') {
+    if (id === NEW_DETAIL_ID) {
       setDetailData(Object.assign(PAGES_DETAIL_FORM_NEW));
     } else {
       // TODO
