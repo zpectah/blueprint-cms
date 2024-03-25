@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 import { Button } from '@mui/material';
 import { ROUTES } from '../../config';
 import { NEW_DETAIL_ID } from '../../constants';
+import { useMenusTranslations } from '../../hooks';
 import { ViewLayout } from '../../components';
 import { MenusContextProvider } from './context';
 import { useMenusContextValue } from './hooks';
@@ -11,16 +11,16 @@ import { MenusList } from './MenusList';
 import { MenusDetail } from './MenusDetail';
 
 const Menus = () => {
-  const { t } = useTranslation(['common', 'menus']);
+  const { t, mt } = useMenusTranslations();
   const providerValue = useMenusContextValue();
 
   return (
     <MenusContextProvider value={providerValue}>
       <ViewLayout
-        title={t('menus:page.title')}
-        subtitle={t('menus:page.subtitle')}
+        title={mt['page.title']}
+        subtitle={mt['page.subtitle']}
         meta={{
-          title: t('menus:page.meta.title'),
+          title: mt['page.meta.title'],
         }}
         actions={
           <Button

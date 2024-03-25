@@ -1,20 +1,20 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import { Card, CardContent, Button } from '@mui/material';
 import { ENV_MODE } from '../../config';
 import { useAppNotificationsContext } from '../../contexts';
+import { useDashboardTranslations } from '../../hooks';
 import { ViewLayout } from '../../components';
 
 const Dashboard = () => {
-  const { t } = useTranslation(['common', 'dashboard']);
+  const { t, mt } = useDashboardTranslations();
   const { notifications, addNotification } = useAppNotificationsContext();
 
   return (
     <ViewLayout
-      title={t('dashboard:page.title')}
-      subtitle={t('dashboard:page.subtitle')}
+      title={mt['page.title']}
+      subtitle={mt['page.subtitle']}
       meta={{
-        title: t('dashboard:page.meta.title'),
+        title: mt['page.meta.title'],
       }}
       // alerts={[
       //   {

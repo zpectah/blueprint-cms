@@ -1,16 +1,16 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import { ViewLayout } from '../../components';
+import { useHelpTranslations } from '../../hooks';
 
 const Help = () => {
-  const { t } = useTranslation(['common', 'help']);
+  const { mt } = useHelpTranslations();
 
   return (
     <ViewLayout
-      title={t('help:page.title')}
-      subtitle={t('help:page.subtitle')}
+      title={mt['page.title']}
+      subtitle={mt['page.subtitle']}
       meta={{
-        title: t('help:page.meta.title'),
+        title: mt['page.meta.title'],
       }}
     >
       Help Module View

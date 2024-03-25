@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 import { Button } from '@mui/material';
 import { ROUTES } from '../../config';
 import { NEW_DETAIL_ID } from '../../constants';
+import { useFilesTranslations } from '../../hooks';
 import { ViewLayout } from '../../components';
 import { FilesContextProvider } from './context';
 import { useFilesContextValue } from './hooks';
@@ -11,16 +11,16 @@ import { FilesList } from './FilesList';
 import { FilesDetail } from './FilesDetail';
 
 const Files = () => {
-  const { t } = useTranslation(['common', 'files']);
+  const { t, mt } = useFilesTranslations();
   const providerValue = useFilesContextValue();
 
   return (
     <FilesContextProvider value={providerValue}>
       <ViewLayout
-        title={t('files:page.title')}
-        subtitle={t('files:page.subtitle')}
+        title={mt['page.title']}
+        subtitle={mt['page.subtitle']}
         meta={{
-          title: t('files:page.meta.title'),
+          title: mt['page.meta.title'],
         }}
         actions={
           <Button

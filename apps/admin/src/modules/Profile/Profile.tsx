@@ -1,15 +1,16 @@
 import React from 'react';
-// import { useTranslation } from 'react-i18next';
+import { useProfileTranslations } from '../../hooks';
 import { ViewLayout } from '../../components';
 
 const Profile = () => {
-  // const { t } = useTranslation();
+  const { mt } = useProfileTranslations();
 
   return (
     <ViewLayout
-      title="Profile"
+      title={mt['page.title']}
+      subtitle={mt['page.subtitle']}
       meta={{
-        title: 'Profile',
+        title: mt['page.meta.title'],
       }}
     >
       ...Profile view...

@@ -1,15 +1,15 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import { DialogLayout, BodyBackground } from '../../components';
+import { useLoginTranslations } from '../../hooks';
 import { LoginForm } from './LoginForm';
 
 const Login = () => {
-  const { t } = useTranslation(['common', 'login']);
+  const { mt } = useLoginTranslations();
 
   return (
     <DialogLayout
       meta={{
-        title: t('login:page.meta.title'),
+        title: mt['page.meta.title'],
       }}
       containerProps={{ maxWidth: 'sm' }}
       backgroundSlot={<BodyBackground />}

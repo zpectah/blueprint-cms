@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 import { Button } from '@mui/material';
 import { ROUTES } from '../../config';
 import { NEW_DETAIL_ID } from '../../constants';
+import { useMessagesTranslations } from '../../hooks';
 import { ViewLayout } from '../../components';
 import { MessagesContextProvider } from './context';
 import { useMessagesContextValue } from './hooks';
@@ -11,16 +11,16 @@ import { MessagesList } from './MessagesList';
 import { MessagesDetail } from './MessagesDetail';
 
 const Messages = () => {
-  const { t } = useTranslation(['common', 'messages']);
+  const { t, mt } = useMessagesTranslations();
   const providerValue = useMessagesContextValue();
 
   return (
     <MessagesContextProvider value={providerValue}>
       <ViewLayout
-        title={t('messages:page.title')}
-        subtitle={t('messages:page.subtitle')}
+        title={mt['page.title']}
+        subtitle={mt['page.subtitle']}
         meta={{
-          title: t('messages:page.meta.title'),
+          title: mt['page.meta.title'],
         }}
         actions={
           <Button

@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 import { Button } from '@mui/material';
 import { ROUTES } from '../../config';
 import { NEW_DETAIL_ID } from '../../constants';
+import { useTagsTranslations } from '../../hooks';
 import { ViewLayout } from '../../components';
 import { TagsContextProvider } from './context';
 import { useTagsContextValue } from './hooks';
@@ -11,16 +11,16 @@ import { TagsList } from './TagsList';
 import { TagsDetail } from './TagsDetail';
 
 const Tags = () => {
-  const { t } = useTranslation(['common', 'tags']);
+  const { t, mt } = useTagsTranslations();
   const providerValue = useTagsContextValue();
 
   return (
     <TagsContextProvider value={providerValue}>
       <ViewLayout
-        title={t('tags:page.title')}
-        subtitle={t('tags:page.subtitle')}
+        title={mt['page.title']}
+        subtitle={mt['page.subtitle']}
         meta={{
-          title: t('tags:page.meta.title'),
+          title: mt['page.meta.title'],
         }}
         actions={
           <Button

@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 import { Button } from '@mui/material';
 import { ROUTES } from '../../config';
 import { NEW_DETAIL_ID } from '../../constants';
+import { useTranslationsTranslations } from '../../hooks';
 import { ViewLayout } from '../../components';
 import { TranslationsContextProvider } from './context';
 import { useTranslationsContextValue } from './hooks';
@@ -11,16 +11,16 @@ import { TranslationsList } from './TranslationsList';
 import { TranslationsDetail } from './TranslationsDetail';
 
 const Translations = () => {
-  const { t } = useTranslation(['common', 'translations']);
+  const { t, mt } = useTranslationsTranslations();
   const providerValue = useTranslationsContextValue();
 
   return (
     <TranslationsContextProvider value={providerValue}>
       <ViewLayout
-        title={t('translations:page.title')}
-        subtitle={t('translations:page.subtitle')}
+        title={mt['page.title']}
+        subtitle={mt['page.subtitle']}
         meta={{
-          title: t('translations:page.meta.title'),
+          title: mt['page.meta.title'],
         }}
         actions={
           <Button

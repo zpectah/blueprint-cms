@@ -1,14 +1,14 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import { DialogLayout } from '../../components';
+import { useLostPasswordTranslations } from '../../hooks';
 
 const LostPassword = () => {
-  const { t } = useTranslation(['common', 'lostPassword']);
+  const { mt } = useLostPasswordTranslations();
 
   return (
     <DialogLayout
       meta={{
-        title: t('lostPassword:page.meta.title'),
+        title: mt['page.meta.title'],
       }}
     >
       <div>...LostPassword...</div>

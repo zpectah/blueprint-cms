@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 import { Tabs, Tab, Typography, Box } from '@mui/material';
 import { WithChildren } from '@blueprint/types';
 import { ROUTES } from '../../config';
 import { ViewLayout } from '../../components';
+import { useSettingsTranslations } from '../../hooks';
 
 interface TabPanelProps extends WithChildren {
   title?: string;
@@ -46,7 +46,7 @@ function a11yProps(index: string) {
 }
 
 const Settings = () => {
-  const { t } = useTranslation(['common', 'settings']);
+  const { t, mt } = useSettingsTranslations();
 
   const [value, setValue] = useState<string>('global');
 
@@ -67,10 +67,10 @@ const Settings = () => {
 
   return (
     <ViewLayout
-      title={t('settings:page.title')}
-      subtitle={t('settings:page.subtitle')}
+      title={mt['page.title']}
+      subtitle={mt['page.subtitle']}
       meta={{
-        title: t('settings:page.meta.title'),
+        title: mt['page.meta.title'],
       }}
     >
       <Box sx={{ width: '100%' }}>
