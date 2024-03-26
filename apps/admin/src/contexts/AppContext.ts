@@ -1,6 +1,7 @@
 import { createContext, useContext } from 'react';
 import { themeModeKeys } from '../enums';
 import { ThemeMode } from '../types';
+import { LANG_DEFAULT } from '../constants';
 
 interface AppContextProps {
   mode: ThemeMode;
@@ -9,6 +10,8 @@ interface AppContextProps {
   setSidebarOpen: (open: boolean) => void;
   spotlightOpen: boolean;
   setSpotlightOpen: (open: boolean) => void;
+  lang: string;
+  setLang: (lang: string) => void;
 }
 
 const defaultContext: AppContextProps = {
@@ -21,6 +24,9 @@ const defaultContext: AppContextProps = {
   spotlightOpen: false,
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   setSpotlightOpen: () => {},
+  lang: LANG_DEFAULT, // TODO
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  setLang: () => {},
 };
 
 const AppContext = createContext(defaultContext);

@@ -11,7 +11,7 @@ const ConfigMenu = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
   const { i18n } = useTranslation();
-  const { mode, setMode } = useAppContext();
+  const { mode, setMode, setLang } = useAppContext();
 
   const open = Boolean(anchorEl);
   const idPrefix = 'header-config';
@@ -23,9 +23,8 @@ const ConfigMenu = () => {
     setAnchorEl(null);
   };
   const switchLanguageHandler = (lng: string) => {
-    i18n.changeLanguage(lng).then(() => {
-      closeHandler();
-    });
+    setLang(lng);
+    closeHandler();
   };
   const switchThemeModeHandler = (mode: ThemeMode) => {
     setMode(mode);

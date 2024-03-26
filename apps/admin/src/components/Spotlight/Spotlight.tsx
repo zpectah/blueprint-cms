@@ -1,45 +1,30 @@
-import React from 'react';
-import { styled, IconButton, Dialog, TextField } from '@mui/material';
-import SearchIcon from '@mui/icons-material/Search';
+import React, { useState } from 'react';
+import { styled, Dialog } from '@mui/material';
 import { SPACING_BASE } from '../../styles';
 import { useAppContext } from '../../contexts';
+import SpotlightSearch from './SpotlightSearch';
+import SpotlightResults from './SpotlightResults';
 
-const SpotlightContent = styled('div')({
+const SpotlightWrapper = styled('div')({
   width: '100%',
   display: 'flex',
   flexDirection: 'column',
   gap: SPACING_BASE,
   padding: SPACING_BASE,
 });
-const SpotlightSearch = styled('div')({
-  width: '100%',
-  padding: SPACING_BASE,
-  alignItems: 'center',
-  justifyContent: 'center',
-  textAlign: 'center',
-});
-const SpotlightResults = styled('div')({
-  width: '100%',
-  paddingTop: SPACING_BASE,
-  alignItems: 'center',
-  justifyContent: 'center',
-  textAlign: 'center',
-});
 
 const Spotlight = () => {
   const { spotlightOpen, setSpotlightOpen } = useAppContext();
 
+  const [query, setQuery] = useState('');
+
   return (
-    <>
-      <Dialog fullWidth closeAfterTransition open={spotlightOpen} onClose={() => setSpotlightOpen(false)}>
-        <SpotlightContent>
-          <SpotlightSearch>
-            <TextField type="search" fullWidth placeholder="Type to search ..." />
-          </SpotlightSearch>
-          <SpotlightResults>results</SpotlightResults>
-        </SpotlightContent>
-      </Dialog>
-    </>
+    <Dialog fullWidth closeAfterTransition open={spotlightOpen} onClose={() => setSpotlightOpen(false)}>
+      <SpotlightWrapper>
+        <SpotlightSearch open={spotlightOpen} value={query} onChange={(event) => setQuery(event.target.value)} />
+        <SpotlightResults query={query} />
+      </SpotlightWrapper>
+    </Dialog>
   );
 };
 
