@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { Button, Stack } from '@mui/material';
 import { ROUTES } from '../../../config';
 import { SPACING_BASE } from '../../../styles';
-import { useUsersDetail } from '../../../model';
+import { useUsersDetail } from '../../../hooks';
 import { NEW_DETAIL_ID } from '../../../constants';
 import { DetailDrawer, CheckButton } from '../../../components';
 import { FILES_DETAIL_FORM_DEFAULTS, FILES_DETAIL_FORM_NEW } from '../constants';

@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { Button, Stack } from '@mui/material';
 import { ROUTES } from '../../../config';
 import { SPACING_BASE } from '../../../styles';
-import { useMessagesDetail } from '../../../model';
+import { useMessagesDetail } from '../../../hooks';
 import { NEW_DETAIL_ID } from '../../../constants';
 import { DetailDrawer, CheckButton } from '../../../components';
 import { MESSAGES_DETAIL_FORM_DEFAULTS, MESSAGES_DETAIL_FORM_NEW, MESSAGES_DETAIL_FORM_ID } from '../constants';

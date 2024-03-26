@@ -8,7 +8,7 @@ import { useAppContext } from '../../../contexts';
 import { useBreakpoint } from '../../../hooks';
 import { UserMenu } from '../UserMenu';
 import { ConfigMenu } from '../ConfigMenu';
-import { Spotlight } from '../Spotlight';
+import { SpotlightTrigger } from '../SpotlightTrigger';
 
 const HeaderBase = styled(Box, {
   shouldForwardProp: (propName) => propName !== 'isMobile',
@@ -86,7 +86,7 @@ const Header = () => {
           )}
         </HeaderTertiary>
         <HeaderSecondary>
-          <Spotlight />
+          <SpotlightTrigger />
           <ConfigMenu />
           <UserMenu />
         </HeaderSecondary>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { TagsItem } from '@blueprint/types';
 import { DataList } from '../../../components';
-import { useTags } from '../../../model';
+import { useTags } from '../../../hooks';
 
 const TagsList = () => {
   const { tags } = useTags();

@@ -1,7 +1,7 @@
 import React from 'react';
 import { MenusItem } from '@blueprint/types';
 import { DataList } from '../../../components';
-import { useMenus } from '../../../model';
+import { useMenus } from '../../../hooks';
 
 const MenusList = () => {
   const { menus } = useMenus();

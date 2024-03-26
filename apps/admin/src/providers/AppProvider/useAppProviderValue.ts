@@ -6,6 +6,7 @@ import { LOCAL_STORAGE_SIDEBAR_OPEN, LOCAL_STORAGE_THEME_MODE_KEY } from '../../
 export const useAppProviderValue = () => {
   const [mode, setMode] = useState<ThemeMode>(themeModeKeys.light);
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(true);
+  const [spotlightOpen, setSpotlightOpen] = useState<boolean>(false);
 
   const setModeHandler = (mode: ThemeMode) => {
     setMode(mode);
@@ -31,5 +32,7 @@ export const useAppProviderValue = () => {
     setMode: setModeHandler,
     sidebarOpen,
     setSidebarOpen: setSidebarOpenHandler,
+    spotlightOpen,
+    setSpotlightOpen,
   };
 };

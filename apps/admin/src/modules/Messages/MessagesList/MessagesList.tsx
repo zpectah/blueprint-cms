@@ -1,7 +1,7 @@
 import React from 'react';
 import { MessagesItem } from '@blueprint/types';
 import { DataList } from '../../../components';
-import { useMessages } from '../../../model';
+import { useMessages } from '../../../hooks';
 
 const MessagesList = () => {
   const { messages } = useMessages();

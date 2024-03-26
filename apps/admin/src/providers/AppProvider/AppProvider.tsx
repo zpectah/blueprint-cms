@@ -9,7 +9,7 @@ import { useAppProviderValue } from './useAppProviderValue';
 type AppProviderProps = WithChildren;
 
 const AppProvider = ({ children }: AppProviderProps) => {
-  const { mode, setMode, sidebarOpen, setSidebarOpen } = useAppProviderValue();
+  const { mode, setMode, sidebarOpen, setSidebarOpen, spotlightOpen, setSpotlightOpen } = useAppProviderValue();
 
   const theme = deepmerge({ palette: { mode } }, getDesignTokens(mode));
 
@@ -20,6 +20,8 @@ const AppProvider = ({ children }: AppProviderProps) => {
         setMode,
         sidebarOpen,
         setSidebarOpen,
+        spotlightOpen,
+        setSpotlightOpen,
       }}
     >
       <ThemeProvider theme={createTheme(theme)}>

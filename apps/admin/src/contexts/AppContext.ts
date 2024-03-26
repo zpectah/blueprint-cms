@@ -7,6 +7,8 @@ interface AppContextProps {
   setMode: (mode: ThemeMode) => void;
   sidebarOpen: boolean;
   setSidebarOpen: (open: boolean) => void;
+  spotlightOpen: boolean;
+  setSpotlightOpen: (open: boolean) => void;
 }
 
 const defaultContext: AppContextProps = {
@@ -16,6 +18,9 @@ const defaultContext: AppContextProps = {
   sidebarOpen: false,
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   setSidebarOpen: () => {},
+  spotlightOpen: false,
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  setSpotlightOpen: () => {},
 };
 
 const AppContext = createContext(defaultContext);

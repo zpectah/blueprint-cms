@@ -1,7 +1,7 @@
 import React from 'react';
 import { TranslationsItem } from '@blueprint/types';
 import { DataList } from '../../../components';
-import { useTranslations } from '../../../model';
+import { useTranslations } from '../../../hooks';
 
 const TranslationsList = () => {
   const { translations } = useTranslations();

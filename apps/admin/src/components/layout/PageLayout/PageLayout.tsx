@@ -9,6 +9,7 @@ import { Header } from '../Header';
 import { Footer } from '../Footer';
 import { Sidebar } from '../Sidebar';
 import { NotificationsList } from '../NotificationsList';
+import { Spotlight } from '../../Spotlight';
 import PageLayoutPreloader from './PageLayoutPreloader';
 
 const WrapperBase = styled(Box)({
@@ -83,6 +84,7 @@ const PageLayout = () => {
           </ContentContainer>
         </ContentOuter>
       </WrapperInner>
+      <Spotlight />
     </WrapperBase>
   );
 };
