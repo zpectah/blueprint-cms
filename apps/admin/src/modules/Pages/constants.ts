@@ -1,4 +1,4 @@
-import { IPagesDetailForm } from './types';
+import { IPagesDetailForm } from '../../types';
 
 export const PAGES_DETAIL_FORM_ID = 'pages-detail-form';
 

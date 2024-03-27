@@ -1,4 +1,4 @@
-import { ITagsDetailForm } from './types';
+import { ITagsDetailForm } from '../../types';
 
 export const TAGS_DETAIL_FORM_ID = 'tags-detail-form';
 

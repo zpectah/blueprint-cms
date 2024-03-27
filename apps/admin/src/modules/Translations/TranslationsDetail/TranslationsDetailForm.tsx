@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react';
 import { Controller, SubmitHandler } from 'react-hook-form';
 import { Snackbar } from '@mui/material';
-import { FormResponseState } from '../../../types';
+import { FormResponseState, ITranslationsDetailForm } from '../../../types';
 import { formResponseStateKeys } from '../../../enums';
 import { Form, FormBlock, FormField, Input } from '../../../components';
-import { ITranslationsDetailForm } from '../types';
 import { TRANSLATIONS_DETAIL_FORM_ID } from '../constants';
 import { useTranslationsContext } from '../context';
 import { useTranslationsDetailForm } from '../hooks';

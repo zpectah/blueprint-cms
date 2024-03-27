@@ -1,4 +1,4 @@
-import { IMenusDetailForm } from './types';
+import { IMenusDetailForm } from '../../types';
 
 export const MENUS_DETAIL_FORM_ID = 'menus-detail-form';
 

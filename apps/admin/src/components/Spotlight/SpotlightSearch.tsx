@@ -1,7 +1,9 @@
-import React, { ChangeEvent, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { styled, Box } from '@mui/material';
 import { SPACING_BASE } from '../../styles';
 import { SearchInput } from '../input';
+import { useSpotlightContext } from './SpotlightContext';
+import { useAppContext } from '../../contexts';
 
 const SpotlightSearchWrapper = styled(Box)({
   width: '100%',
@@ -12,24 +14,30 @@ const SpotlightSearchWrapper = styled(Box)({
 });
 
 export interface SpotlightSearchProps {
-  open: boolean;
   focusDelay?: number;
-  value: string;
-  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
-const SpotlightSearch = ({ open, focusDelay = 125, value, onChange }: SpotlightSearchProps) => {
+const SpotlightSearch = ({ focusDelay = 125 }: SpotlightSearchProps) => {
+  const { spotlightOpen } = useAppContext();
+  const { query, setQuery } = useSpotlightContext();
+
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    if (open && inputRef.current) {
+    if (spotlightOpen && inputRef.current) {
       setTimeout(() => inputRef.current?.focus(), focusDelay);
     }
-  }, [open, focusDelay, inputRef]);
+  }, [spotlightOpen, focusDelay, inputRef]);
 
   return (
     <SpotlightSearchWrapper>
-      <SearchInput fullWidth placeholder="Type to search ..." inputRef={inputRef} value={value} onChange={onChange} />
+      <SearchInput
+        fullWidth
+        placeholder="Type to search ..."
+        inputRef={inputRef}
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+      />
     </SpotlightSearchWrapper>
   );
 };

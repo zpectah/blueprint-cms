@@ -1,4 +1,4 @@
-import { ICategoriesDetailForm } from './types';
+import { ICategoriesDetailForm } from '../../types';
 
 export const CATEGORIES_DETAIL_FORM_ID = 'categories-detail-form';
 

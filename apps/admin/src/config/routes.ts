@@ -1,9 +1,11 @@
+import { AppRoutes } from '../types';
+
 export const BASE_ROOT = '/';
 
 export const PATH_ID_SUFFIX = '/:id';
 export const PATH_PANEL_SUFFIX = '/:panel';
 
-export const ROUTES = {
+export const ROUTES: AppRoutes = {
   error: {
     path: '*',
   },

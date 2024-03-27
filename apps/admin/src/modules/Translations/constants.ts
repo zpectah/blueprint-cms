@@ -1,4 +1,4 @@
-import { ITranslationsDetailForm } from './types';
+import { ITranslationsDetailForm } from '../../types';
 
 export const TRANSLATIONS_DETAIL_FORM_ID = 'translations-detail-form';
 

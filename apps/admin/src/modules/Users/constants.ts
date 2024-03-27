@@ -1,4 +1,4 @@
-import { IUsersDetailForm } from './types';
+import { IUsersDetailForm } from '../../types';
 
 export const USERS_DETAIL_FORM_ID = 'users-detail-form';
 

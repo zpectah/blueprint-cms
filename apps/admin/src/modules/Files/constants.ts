@@ -1,4 +1,4 @@
-import { IFilesDetailForm } from './types';
+import { IFilesDetailForm } from '../../types';
 
 export const FILES_DETAIL_FORM_ID = 'files-detail-form';
 

@@ -1,4 +1,4 @@
-import { IMessagesDetailForm } from './types';
+import { IMessagesDetailForm } from '../../types';
 
 export const MESSAGES_DETAIL_FORM_ID = 'messages-detail-form';
 

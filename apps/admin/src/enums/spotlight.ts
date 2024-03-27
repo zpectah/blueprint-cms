@@ -1,0 +1,15 @@
+export const spotlightIndexKeys = {
+  categories: 'categories',
+  dashboard: 'dashboard',
+  files: 'files',
+  help: 'help',
+  menus: 'menus',
+  messages: 'messages',
+  pages: 'pages',
+  posts: 'posts',
+  profile: 'profile',
+  settings: 'settings',
+  tags: 'tags',
+  translations: 'translations',
+  users: 'users',
+} as const;
