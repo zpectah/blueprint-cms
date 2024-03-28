@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { useRef, ReactNode, useEffect } from 'react';
 import { styled, Box, Typography, Alert, AlertTitle, AlertProps } from '@mui/material';
 import { WithChildren } from '@blueprint/types';
 import { SPACING_BASE } from '../../../styles';
@@ -25,6 +25,10 @@ const ContentHeading = styled(Box)(({ theme }) => ({
   paddingTop: SPACING_BASE,
   paddingBottom: `calc(${SPACING_BASE} * 2)`,
   borderBottom: `1px solid ${theme.palette.divider}`,
+  position: 'sticky',
+  top: 0,
+  backgroundColor: theme.palette.background.default,
+  zIndex: 10,
 }));
 const ContentHeadingContent = styled(Box)({
   width: '100%',
@@ -81,7 +85,13 @@ const ViewLayout = (props: ViewLayoutProps) => {
 
   const { isMobile } = useBreakpoint();
 
+  const contentRef = useRef<HTMLDivElement>(null);
+
   useDocumentMeta(meta);
+
+  useEffect(() => {
+    setTimeout(() => contentRef.current?.scrollIntoView({ behavior: 'instant' }), 10);
+  }, []);
 
   return (
     <LayoutWrapper
@@ -96,7 +106,7 @@ const ViewLayout = (props: ViewLayoutProps) => {
         },
       }}
     >
-      <LayoutContent>
+      <LayoutContent ref={contentRef}>
         <ContentHeading>
           <ContentHeadingContent>
             <HeadingPrimary>

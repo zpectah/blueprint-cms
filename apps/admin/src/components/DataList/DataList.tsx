@@ -20,6 +20,7 @@ const DataList = <T extends Item>({ items, model }: DataListProps<T>) => {
     pages: ROUTES.pages.path,
     tags: ROUTES.tags.path,
     translations: ROUTES.translations.path,
+    members: ROUTES.members.path,
   };
 
   const detailClickHandler = (id: string) => {
