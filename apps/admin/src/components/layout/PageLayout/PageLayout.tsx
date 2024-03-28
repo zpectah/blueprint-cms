@@ -9,7 +9,7 @@ import { Header } from '../Header';
 import { Footer } from '../Footer';
 import { Sidebar } from '../Sidebar';
 import { NotificationsList } from '../NotificationsList';
-import { Spotlight } from '../../Spotlight';
+import { Spotlight, useSpotlightContextValue, SpotlightContextProvider } from '../../Spotlight';
 import PageLayoutPreloader from './PageLayoutPreloader';
 
 const WrapperBase = styled(Box)({
@@ -64,28 +64,31 @@ const Content = styled(Container)({
 const PageLayout = () => {
   const { sidebarOpen } = useAppContext();
   const { isMobile } = useBreakpoint();
+  const { ...spotlightContext } = useSpotlightContextValue();
 
   return (
-    <WrapperBase>
-      <Header />
-      <WrapperInner open={sidebarOpen} isMobile={isMobile}>
-        <Sidebar />
-        <ContentOuter>
-          <NotificationsList id={PAGE_LAYOUT_NOTIFICATION_LIST_ID} />
-          <ContentContainer>
-            <ContentScrollable>
-              <Content>
-                <Suspense fallback={<PageLayoutPreloader />}>
-                  <Outlet />
-                </Suspense>
-                <Footer />
-              </Content>
-            </ContentScrollable>
-          </ContentContainer>
-        </ContentOuter>
-      </WrapperInner>
-      <Spotlight />
-    </WrapperBase>
+    <SpotlightContextProvider value={spotlightContext}>
+      <WrapperBase>
+        <Header />
+        <WrapperInner open={sidebarOpen} isMobile={isMobile}>
+          <Sidebar />
+          <ContentOuter>
+            <NotificationsList id={PAGE_LAYOUT_NOTIFICATION_LIST_ID} />
+            <ContentContainer>
+              <ContentScrollable>
+                <Content>
+                  <Suspense fallback={<PageLayoutPreloader />}>
+                    <Outlet />
+                  </Suspense>
+                  <Footer />
+                </Content>
+              </ContentScrollable>
+            </ContentContainer>
+          </ContentOuter>
+        </WrapperInner>
+        <Spotlight />
+      </WrapperBase>
+    </SpotlightContextProvider>
   );
 };
 

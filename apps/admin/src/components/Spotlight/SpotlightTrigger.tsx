@@ -1,13 +1,13 @@
 import React from 'react';
 import { IconButton } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
-import { useAppContext } from '../../../contexts';
+import { useSpotlightContext } from './SpotlightContext';
 
 const SpotlightTrigger = () => {
-  const { setSpotlightOpen } = useAppContext();
+  const { setOpen } = useSpotlightContext();
 
   return (
-    <IconButton onClick={() => setSpotlightOpen(true)} color="inherit">
+    <IconButton onClick={() => setOpen(true)} color="inherit">
       <SearchIcon />
     </IconButton>
   );

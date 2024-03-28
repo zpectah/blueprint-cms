@@ -6,9 +6,9 @@ import { CFG_CMS, CFG_PROJECT } from '@blueprint/core';
 import { HEADER_DESKTOP_HEIGHT, HEADER_MOBILE_HEIGHT, SPACING_BASE } from '../../../styles';
 import { useAppContext } from '../../../contexts';
 import { useBreakpoint } from '../../../hooks';
+import { SpotlightTrigger } from '../../Spotlight';
 import { UserMenu } from '../UserMenu';
 import { ConfigMenu } from '../ConfigMenu';
-import { SpotlightTrigger } from '../SpotlightTrigger';
 
 const HeaderBase = styled(Box, {
   shouldForwardProp: (propName) => propName !== 'isMobile',

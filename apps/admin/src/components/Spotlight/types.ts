@@ -1,6 +1,9 @@
 import { spotlightIndexKeys } from '../../enums';
 
 export interface SpotlightContextProps {
+  open: boolean;
+  setOpen: (open: boolean) => void;
+  setClose: () => void;
   query: string;
   setQuery: (query: string) => void;
 }

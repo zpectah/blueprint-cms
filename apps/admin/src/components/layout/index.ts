@@ -7,6 +7,5 @@ export * from './NotificationsList';
 export * from './PageLayout';
 export * from './PrimaryMenu';
 export * from './Sidebar';
-export * from './SpotlightTrigger';
 export * from './UserMenu';
 export * from './ViewLayout';

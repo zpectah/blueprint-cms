@@ -8,8 +8,6 @@ interface AppContextProps {
   setMode: (mode: ThemeMode) => void;
   sidebarOpen: boolean;
   setSidebarOpen: (open: boolean) => void;
-  spotlightOpen: boolean;
-  setSpotlightOpen: (open: boolean) => void;
   lang: string;
   setLang: (lang: string) => void;
 }
@@ -21,10 +19,7 @@ const defaultContext: AppContextProps = {
   sidebarOpen: false,
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   setSidebarOpen: () => {},
-  spotlightOpen: false,
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  setSpotlightOpen: () => {},
-  lang: LANG_DEFAULT, // TODO
+  lang: LANG_DEFAULT,
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   setLang: () => {},
 };

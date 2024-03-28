@@ -3,7 +3,6 @@ import { styled, Box } from '@mui/material';
 import { SPACING_BASE } from '../../styles';
 import { SearchInput } from '../input';
 import { useSpotlightContext } from './SpotlightContext';
-import { useAppContext } from '../../contexts';
 
 const SpotlightSearchWrapper = styled(Box)({
   width: '100%',
@@ -18,22 +17,21 @@ export interface SpotlightSearchProps {
 }
 
 const SpotlightSearch = ({ focusDelay = 125 }: SpotlightSearchProps) => {
-  const { spotlightOpen } = useAppContext();
-  const { query, setQuery } = useSpotlightContext();
+  const { open, query, setQuery } = useSpotlightContext();
 
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    if (spotlightOpen && inputRef.current) {
+    if (open && inputRef.current) {
       setTimeout(() => inputRef.current?.focus(), focusDelay);
     }
-  }, [spotlightOpen, focusDelay, inputRef]);
+  }, [open, focusDelay, inputRef]);
 
   return (
     <SpotlightSearchWrapper>
       <SearchInput
         fullWidth
-        placeholder="Type to search ..."
+        placeholder="Fulltext search"
         inputRef={inputRef}
         value={query}
         onChange={(e) => setQuery(e.target.value)}

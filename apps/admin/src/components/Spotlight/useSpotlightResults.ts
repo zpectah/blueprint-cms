@@ -1,11 +1,11 @@
 import { useMemo } from 'react';
-import { useSpotlightIndexes } from './useSpotlightIndexes';
+import { useSpotlightFulltext } from './useSpotlightFulltext';
 import { ROUTES } from '../../config';
 import { SpotlightResultItem, SpotlightResultModel, SpotlightTranslation } from './types';
 import { useSpotlightContext } from './SpotlightContext';
 
 export const useSpotlightResults = () => {
-  const { translations } = useSpotlightIndexes();
+  const { translations } = useSpotlightFulltext();
   const { query } = useSpotlightContext();
 
   const results = useMemo(() => {
@@ -19,7 +19,10 @@ export const useSpotlightResults = () => {
         const itemResults: SpotlightResultItem[] = [];
 
         modelItems.forEach((string, ix) => {
-          if (string.toLowerCase().search(query.toLowerCase()) > -1) {
+          const string_clean = string.toLowerCase();
+          const query_clean = query.toLowerCase();
+
+          if (string_clean.search(query_clean) > -1) {
             itemResults.push({
               index: ix,
               scope: 'index',
