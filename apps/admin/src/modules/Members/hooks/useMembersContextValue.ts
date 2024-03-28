@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { FormResponseItem, IUsersDetailForm } from '../../../types';
-import { USERS_DETAIL_FORM_DEFAULTS } from '../constants';
+import { FormResponseItem, IMembersDetailForm } from '../../../types';
+import { MEMBERS_DETAIL_FORM_DEFAULTS } from '../constants';
 
-export const useUsersContextValue = () => {
-  const [detailData, setDetailData] = useState<IUsersDetailForm>(USERS_DETAIL_FORM_DEFAULTS);
+export const useMembersContextValue = () => {
+  const [detailData, setDetailData] = useState<IMembersDetailForm>(MEMBERS_DETAIL_FORM_DEFAULTS);
   const [responseSnack, setResponseSnack] = useState<FormResponseItem | null>(null);
   const [isFormDirty, setFormDirty] = useState(false);
 

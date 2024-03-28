@@ -5,6 +5,7 @@ import files from './files.json';
 import help from './help.json';
 import login from './login.json';
 import lostPassword from './lostPassword.json';
+import members from './members.json';
 import menus from './menus.json';
 import messages from './messages.json';
 import pages from './pages.json';
@@ -23,6 +24,7 @@ const cs = {
   help,
   login,
   lostPassword,
+  members,
   menus,
   messages,
   pages,

@@ -9,6 +9,7 @@ import MessageIcon from '@mui/icons-material/Message';
 import AutoStoriesIcon from '@mui/icons-material/AutoStories';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
 import LanguageIcon from '@mui/icons-material/Language';
+import PeopleOutlineIcon from '@mui/icons-material/PeopleOutline';
 import { ROUTES } from '../config';
 import { MenuItemList } from '../types';
 
@@ -75,6 +76,12 @@ export const PRIMARY_MENU: MenuItemList = [
   },
   {
     key: 11,
+    label: 'navigation.primary.members',
+    path: ROUTES.members.path,
+    icon: PeopleOutlineIcon,
+  },
+  {
+    key: 12,
     label: 'navigation.primary.messages',
     path: ROUTES.messages.path,
     icon: MessageIcon,

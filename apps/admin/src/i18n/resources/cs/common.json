@@ -13,6 +13,7 @@
   "navigation.primary.files": "Soubory",
   "navigation.primary.menus": "Menu",
   "navigation.primary.messages": "Zprávy",
+  "navigation.primary.members": "Members",
 
   "header.user.profile.label": "Můj profil",
   "header.user.logout.label": "Odhlásit se",
@@ -29,6 +30,7 @@
   "label.tags_new": "Nový tag",
   "label.translations_new": "Nový překlad",
   "label.users_new": "Nový uživatel",
+  "label.members_new": "Nový member",
 
   "form.label.email": "E-mail",
   "form.label.password": "Heslo"

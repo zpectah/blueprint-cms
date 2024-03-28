@@ -1,6 +1,5 @@
 import { createContext, useContext } from 'react';
-import { FormResponseItem } from '../../../types';
-import { IUsersDetailForm } from '../types';
+import { FormResponseItem, IUsersDetailForm } from '../../../types';
 import { USERS_DETAIL_FORM_DEFAULTS } from '../constants';
 
 interface UsersContextProps {

@@ -4,6 +4,7 @@ export * from './useFilesTranslations';
 export * from './useHelpTranslations';
 export * from './useLoginTranslations';
 export * from './useLostPasswordTranslations';
+export * from './useMembersTranslations';
 export * from './useMenusTranslations';
 export * from './useMessagesTranslations';
 export * from './usePagesTranslations';

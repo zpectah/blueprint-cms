@@ -16,6 +16,7 @@ const Messages = lazy(() => import('../modules/Messages/Messages'));
 const Pages = lazy(() => import('../modules/Pages/Pages'));
 const Tags = lazy(() => import('../modules/Tags/Tags'));
 const Translations = lazy(() => import('../modules/Translations/Translations'));
+const Members = lazy(() => import('../modules/Members/Members'));
 
 const AppRouter = () => {
   const router = createBrowserRouter([
@@ -158,6 +159,16 @@ const AppRouter = () => {
             {
               path: `${ROUTES.translations.path}${PATH_ID_SUFFIX}`,
               element: <Translations />,
+            },
+          ],
+        },
+        {
+          path: ROUTES.members.path,
+          element: <Members />,
+          children: [
+            {
+              path: `${ROUTES.members.path}${PATH_ID_SUFFIX}`,
+              element: <Members />,
             },
           ],
         },

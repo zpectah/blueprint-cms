@@ -6,6 +6,8 @@ export const API_MODEL = {
   usersDetail: 'https://jsonplaceholder.typicode.com/todos/',
   files: 'https://jsonplaceholder.typicode.com/photos',
   filesDetail: 'https://jsonplaceholder.typicode.com/photos/',
+  members: 'https://jsonplaceholder.typicode.com/todos',
+  membersDetail: 'https://jsonplaceholder.typicode.com/todos/',
   pages: 'https://jsonplaceholder.typicode.com/todos',
   pagesDetail: 'https://jsonplaceholder.typicode.com/todos/',
   translations: 'https://jsonplaceholder.typicode.com/todos',

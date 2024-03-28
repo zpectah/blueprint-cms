@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
-import { IUsersDetailForm } from '../../../types';
+import { IMembersDetailForm } from '../../../types';
 
-export const useUsersDetailForm = (formData: IUsersDetailForm) => {
+export const useMembersDetailForm = (formData: IMembersDetailForm) => {
   const form = useForm({
     defaultValues: Object.assign(formData),
     mode: 'onBlur',

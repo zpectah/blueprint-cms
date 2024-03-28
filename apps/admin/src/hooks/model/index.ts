@@ -1,5 +1,6 @@
 export * from './categories';
 export * from './files';
+export * from './members';
 export * from './menus';
 export * from './menusItems';
 export * from './messages';

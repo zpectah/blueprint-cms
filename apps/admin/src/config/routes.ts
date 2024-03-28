@@ -64,4 +64,7 @@ export const ROUTES: AppRoutes = {
   translations: {
     path: '/translations',
   },
+  members: {
+    path: '/members',
+  },
 };

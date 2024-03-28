@@ -13,6 +13,7 @@
   "navigation.primary.files": "Files",
   "navigation.primary.menus": "Menus",
   "navigation.primary.messages": "Messages",
+  "navigation.primary.members": "Members",
 
   "header.user.profile.label": "My profile",
   "header.user.logout.label": "Logout",
@@ -29,6 +30,7 @@
   "label.tags_new": "New tag",
   "label.translations_new": "New translation",
   "label.users_new": "New user",
+  "label.members_new": "New member",
 
   "form.label.email": "E-mail",
   "form.label.password": "Password"

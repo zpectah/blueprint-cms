@@ -4,6 +4,7 @@ export interface DataListProps<T> {
     | 'posts'
     | 'users'
     | 'files'
+    | 'members'
     | 'categories'
     | 'pages'
     | 'tags'
