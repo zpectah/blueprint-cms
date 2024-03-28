@@ -1,5 +1,5 @@
 import { useForm } from 'react-hook-form';
-import { IPagesDetailForm } from '../types';
+import { IPagesDetailForm } from '../../../types';
 
 export const usePagesDetailForm = (formData: IPagesDetailForm) => {
   const form = useForm({

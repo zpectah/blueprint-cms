@@ -1,6 +1,5 @@
 import { createContext, useContext } from 'react';
-import { FormResponseItem } from '../../../types';
-import { ICategoriesDetailForm } from '../types';
+import { FormResponseItem, ICategoriesDetailForm } from '../../../types';
 import { CATEGORIES_DETAIL_FORM_DEFAULTS } from '../constants';
 
 interface CategoriesContextProps {

@@ -1,6 +1,5 @@
 import { createContext, useContext } from 'react';
-import { FormResponseItem } from '../../../types';
-import { IMessagesDetailForm } from '../types';
+import { FormResponseItem, IMessagesDetailForm } from '../../../types';
 import { MESSAGES_DETAIL_FORM_DEFAULTS } from '../constants';
 
 interface MessagesContextProps {

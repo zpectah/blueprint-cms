@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import { FormResponseItem } from '../../../types';
-import { IPagesDetailForm } from '../types';
+import { FormResponseItem, IPagesDetailForm } from '../../../types';
 import { PAGES_DETAIL_FORM_DEFAULTS } from '../constants';
 
 export const usePagesContextValue = () => {

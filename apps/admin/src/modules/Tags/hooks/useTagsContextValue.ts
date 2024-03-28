@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import { FormResponseItem } from '../../../types';
-import { ITagsDetailForm } from '../types';
+import { FormResponseItem, ITagsDetailForm } from '../../../types';
 import { TAGS_DETAIL_FORM_DEFAULTS } from '../constants';
 
 export const useTagsContextValue = () => {

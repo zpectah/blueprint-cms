@@ -1,5 +1,5 @@
 import { useForm } from 'react-hook-form';
-import { ICategoriesDetailForm } from '../types';
+import { ICategoriesDetailForm } from '../../../types';
 
 export const useCategoriesDetailForm = (formData: ICategoriesDetailForm) => {
   const form = useForm({

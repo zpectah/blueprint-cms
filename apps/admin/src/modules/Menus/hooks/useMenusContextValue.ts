@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import { FormResponseItem } from '../../../types';
-import { IMenusDetailForm } from '../types';
+import { FormResponseItem, IMenusDetailForm } from '../../../types';
 import { MENUS_DETAIL_FORM_DEFAULTS } from '../constants';
 
 export const useMenusContextValue = () => {

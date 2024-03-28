@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import { FormResponseItem } from '../../../types';
-import { IFilesDetailForm } from '../types';
+import { FormResponseItem, IFilesDetailForm } from '../../../types';
 import { FILES_DETAIL_FORM_DEFAULTS } from '../constants';
 
 export const useFilesContextValue = () => {

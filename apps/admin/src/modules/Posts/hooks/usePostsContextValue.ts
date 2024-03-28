@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import { FormResponseItem } from '../../../types';
-import { IPostsDetailForm } from '../types';
+import { FormResponseItem, IPostsDetailForm } from '../../../types';
 import { POSTS_DETAIL_FORM_DEFAULTS } from '../constants';
 
 export const usePostsContextValue = () => {

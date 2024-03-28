@@ -1,6 +1,5 @@
 import { createContext, useContext } from 'react';
-import { FormResponseItem } from '../../../types';
-import { ITranslationsDetailForm } from '../types';
+import { FormResponseItem, ITranslationsDetailForm } from '../../../types';
 import { TRANSLATIONS_DETAIL_FORM_DEFAULTS } from '../constants';
 
 interface TranslationsContextProps {

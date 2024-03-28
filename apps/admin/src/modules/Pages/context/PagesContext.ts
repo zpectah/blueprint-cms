@@ -1,6 +1,5 @@
 import { createContext, useContext } from 'react';
-import { FormResponseItem } from '../../../types';
-import { IPagesDetailForm } from '../types';
+import { FormResponseItem, IPagesDetailForm } from '../../../types';
 import { PAGES_DETAIL_FORM_DEFAULTS } from '../constants';
 
 interface PagesContextProps {

@@ -1,5 +1,5 @@
 import { useForm } from 'react-hook-form';
-import { ITranslationsDetailForm } from '../types';
+import { ITranslationsDetailForm } from '../../../types';
 
 export const useTranslationsDetailForm = (formData: ITranslationsDetailForm) => {
   const form = useForm({
